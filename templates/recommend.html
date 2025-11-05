@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Encontre seu Vinho Ideal</h1>
+    <p>Nos diga o que você gosta e encontraremos os melhores vinhos para você.</p>
+    
+    <form method="POST">
+        <label for="type">Tipo de Vinho:</label>
+        <select name="type" id="type">
+            <option value="">Qualquer Tipo</option>
+            <option value="Tinto">Tinto</option>
+            <option value="Branco">Branco</option>
+            <option value="Rosé">Rosé</option>
+            <option value="Espumante">Espumante</option>
+            <option value="Fortificado">Fortificado</option>
+        </select>
+        
+        <label for="grape">Contém a uva (ex: Malbec, Chardonnay):</label>
+        <input type="text" name="grape" id="grape" placeholder="Deixe em branco para qualquer uva">
+        
+        <label for="min_rating">Nota Mínima (0 a 5):</label>
+        <input type="number" name="min_rating" id="min_rating" min="0" max="5" step="0.1" value="0">
+        
+        <button type="submit">Buscar Recomendações</button>
+    </form>
+    
+    <hr>
+    
+    <h2>Resultados</h2>
+    
+    {% if search_done %}
+        {% if results %}
+            <p>Encontramos {{ results|length }} vinhos para você:</p>
+            {% for vinho in results %}
+                <div class="vinho-card">
+                    <h3>{{ vinho.name }} ({{ vinho.vintage }})</h3>
+                    <p>
+                        <strong>Tipo:</strong> {{ vinho.type }} | 
+                        <strong>País:</strong> {{ vinho.country }}
+                    </p>
+                    <p><strong>Uvas:</strong> {{ vinho.grape_varieties }}</p>
+                    <p><strong>Nota:</strong> {{ vinho.average_rating }} ({{ vinho.reviews_count }} avaliações)</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>Nenhum vinho encontrado com esses critérios. Tente uma busca mais ampla.</p>
+        {% endif %}
+    {% else %}
+        <p>Preencha o formulário acima para ver suas recomendações.</p>
+    {% endif %}
+
+{% endblock %}

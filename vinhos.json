@@ -1,0 +1,1824 @@
+{
+  "wines": [
+    {
+      "rank": 1,
+      "name": "Catena Zapata Malbec Argentino",
+      "country": "Argentina",
+      "region": "Mendoza",
+      "grape_varieties": ["Malbec"],
+      "vintage": 2020,
+      "type": "Tinto",
+      "producer": "Catena Zapata",
+      "alcohol_abv": 14.0,
+      "volume_ml": 750,
+      "description": "Aromas de cassis, mirtilo e violeta. Na boca é encorpado, com taninos maduros e final longo.",
+      "buyer_rating": {
+        "average": 4.6,
+        "reviews_count": 25430
+      },
+      "sources": ["Vivino", "Wine-Searcher"]
+    },
+    {
+      "rank": 2,
+      "name": "Cloudy Bay Sauvignon Blanc",
+      "country": "Nova Zelândia",
+      "region": "Marlborough",
+      "grape_varieties": ["Sauvignon Blanc"],
+      "vintage": 2022,
+      "type": "Branco",
+      "producer": "Cloudy Bay",
+      "alcohol_abv": 13.5,
+      "volume_ml": 750,
+      "description": "Notas vibrantes de maracujá, grapefruit e um toque de grama cortada. Acidez refrescante.",
+      "buyer_rating": {
+        "average": 4.5,
+        "reviews_count": 18970
+      },
+      "sources": ["Total Wine", "James Suckling"]
+    },
+    {
+      "rank": 3,
+      "name": "Château Ste. Michelle Cabernet Sauvignon",
+      "country": "EUA",
+      "region": "Columbia Valley, Washington",
+      "grape_varieties": ["Cabernet Sauvignon"],
+      "vintage": 2019,
+      "type": "Tinto",
+      "producer": "Château Ste. Michelle",
+      "alcohol_abv": 13.8,
+      "volume_ml": 750,
+      "description": "Vinho acessível e complexo com notas de frutas escuras, baunilha e especiarias. Bom corpo e taninos suaves.",
+      "buyer_rating": {
+        "average": 4.1,
+        "reviews_count": 12500
+      },
+      "sources": ["Wine.com"]
+    },
+    {
+      "rank": 4,
+      "name": "M. Chapoutier Belleruche Côtes-du-Rhône",
+      "country": "França",
+      "region": "Rhône",
+      "grape_varieties": ["Grenache", "Syrah"],
+      "vintage": 2021,
+      "type": "Tinto",
+      "producer": "M. Chapoutier",
+      "alcohol_abv": 14.5,
+      "volume_ml": 750,
+      "description": "Aromas de framboesa, pimenta preta e especiarias. Paladar frutado com taninos macios.",
+      "buyer_rating": {
+        "average": 4.0,
+        "reviews_count": 22100
+      },
+      "sources": ["Vivino", "Wine Spectator"]
+    },
+    {
+      "rank": 5,
+      "name": "The Prisoner Red Blend",
+      "country": "EUA",
+      "region": "Napa Valley, Califórnia",
+      "grape_varieties": ["Zinfandel", "Cabernet Sauvignon", "Syrah", "Petite Sirah", "Charbono"],
+      "vintage": 2021,
+      "type": "Tinto",
+      "producer": "The Prisoner Wine Company",
+      "alcohol_abv": 15.2,
+      "volume_ml": 750,
+      "description": "Perfil ousado e frutado com notas de cereja Bing, chocolate amargo, cravo e amora.",
+      "buyer_rating": {
+        "average": 4.6,
+        "reviews_count": 35780
+      },
+      "sources": ["The Prisoner Wine Company official site"]
+    },
+    {
+      "rank": 6,
+      "name": "Marqués de Riscal Reserva",
+      "country": "Espanha",
+      "region": "Rioja",
+      "grape_varieties": ["Tempranillo", "Graciano", "Mazuelo"],
+      "vintage": 2018,
+      "type": "Tinto",
+      "producer": "Marqués de Riscal",
+      "alcohol_abv": 14.0,
+      "volume_ml": 750,
+      "description": "Um clássico de Rioja com aromas de frutas vermelhas maduras, alcaçuz, e notas de baunilha e coco do carvalho.",
+      "buyer_rating": {
+        "average": 4.3,
+        "reviews_count": 41200
+      },
+      "sources": ["Wine-Searcher"]
+    },
+    {
+      "rank": 7,
+      "name": "Louis Jadot Pouilly-Fuissé",
+      "country": "França",
+      "region": "Borgonha",
+      "grape_varieties": ["Chardonnay"],
+      "vintage": 2021,
+      "type": "Branco",
+      "producer": "Louis Jadot",
+      "alcohol_abv": 13.0,
+      "volume_ml": 750,
+      "description": "Elegante e mineral, com notas de maçã verde, limão, avelã e um toque amanteigado.",
+      "buyer_rating": {
+        "average": 4.2,
+        "reviews_count": 9800
+      },
+      "sources": ["Vivino"]
+    },
+    {
+      "rank": 8,
+      "name": "Santa Margherita Pinot Grigio",
+      "country": "Itália",
+      "region": "Valdadige",
+      "grape_varieties": ["Pinot Grigio"],
+      "vintage": 2022,
+      "type": "Branco",
+      "producer": "Santa Margherita",
+      "alcohol_abv": 12.5,
+      "volume_ml": 750,
+      "description": "Leve e seco, com aromas de maçã dourada e um final limpo e refrescante.",
+      "buyer_rating": {
+        "average": 4.2,
+        "reviews_count": 15300
+      },
+      "sources": ["Santa Margherita USA"]
+    },
+    {
+      "rank": 9,
+      "name": "Penfolds Koonunga Hill Shiraz Cabernet",
+      "country": "Austrália",
+      "region": "South Australia",
+      "grape_varieties": ["Shiraz", "Cabernet Sauvignon"],
+      "vintage": 2019,
+      "type": "Tinto",
+      "producer": "Penfolds",
+      "alcohol_abv": 14.5,
+      "volume_ml": 750,
+      "description": "Corpo médio a encorpado, com sabores de ameixa, cassis e um toque de especiarias e carvalho.",
+      "buyer_rating": {
+        "average": 4.0,
+        "reviews_count": 11000
+      },
+      "sources": ["Penfolds official site", "Dan Murphy's"]
+    },
+    {
+      "rank": 10,
+      "name": "Concha y Toro Casillero del Diablo Cabernet Sauvignon",
+      "country": "Chile",
+      "region": "Valle Central",
+      "grape_varieties": ["Cabernet Sauvignon"],
+      "vintage": 2021,
+      "type": "Tinto",
+      "producer": "Concha y Toro",
+      "alcohol_abv": 13.5,
+      "volume_ml": 750,
+      "description": "Aromas intensos de cereja, ameixa e toques de baunilha. Taninos firmes e um final agradável.",
+      "buyer_rating": {
+        "average": 3.9,
+        "reviews_count": 89500
+      },
+      "sources": ["Casillero del Diablo official site", "Vivino"]
+    },
+    {
+      "rank": 11,
+      "name": "Veuve Clicquot Brut Yellow Label",
+      "country": "França",
+      "region": "Champagne",
+      "grape_varieties": ["Pinot Noir", "Chardonnay", "Pinot Meunier"],
+      "vintage": null,
+      "type": "Espumante",
+      "producer": "Veuve Clicquot",
+      "alcohol_abv": 12.0,
+      "volume_ml": 750,
+      "description": "Equilíbrio perfeito entre força e finesse, com notas de frutas amarelas e brioche.",
+      "buyer_rating": {
+        "average": 4.6,
+        "reviews_count": 65400
+      },
+      "sources": ["Veuve Clicquot official site"]
+    },
+    {
+      "rank": 12,
+      "name": "La Crema Sonoma Coast Chardonnay",
+      "country": "EUA",
+      "region": "Sonoma Coast, Califórnia",
+      "grape_varieties": ["Chardonnay"],
+      "vintage": 2021,
+      "type": "Branco",
+      "producer": "La Crema",
+      "alcohol_abv": 13.9,
+      "volume_ml": 750,
+      "description": "Aromas de abacaxi, manga e baunilha, com uma textura cremosa e acidez equilibrada.",
+      "buyer_rating": {
+        "average": 4.3,
+        "reviews_count": 21800
+      },
+      "sources": ["La Crema official site"]
+    },
+    {
+      "rank": 13,
+      "name": "Kendall-Jackson Vintner's Reserve Cabernet Sauvignon",
+      "country": "EUA",
+      "region": "Califórnia",
+      "grape_varieties": ["Cabernet Sauvignon"],
+      "vintage": 2019,
+      "type": "Tinto",
+      "producer": "Kendall-Jackson",
+      "alcohol_abv": 14.5,
+      "volume_ml": 750,
+      "description": "Notas de amora, cassis e moca. Taninos aveludados e um final longo e rico.",
+      "buyer_rating": {
+        "average": 4.2,
+        "reviews_count": 14000
+      },
+      "sources": ["KJ.com"]
+    },
+    {
+      "rank": 14,
+      "name": "Antinori Tignanello",
+      "country": "Itália",
+      "region": "Toscana",
+      "grape_varieties": ["Sangiovese", "Cabernet Sauvignon", "Cabernet Franc"],
+      "vintage": 2019,
+      "type": "Tinto",
+      "producer": "Marchesi Antinori",
+      "alcohol_abv": 14.0,
+      "volume_ml": 750,
+      "description": "Super Tuscano icônico. Complexo, com notas de frutas vermelhas, especiarias, tabaco e couro.",
+      "buyer_rating": {
+        "average": 4.7,
+        "reviews_count": 19500
+      },
+      "sources": ["Antinori official site", "Robert Parker"]
+    },
+    {
+      "rank": 15,
+      "name": "Dr. Loosen Riesling",
+      "country": "Alemanha",
+      "region": "Mosel",
+      "grape_varieties": ["Riesling"],
+      "vintage": 2022,
+      "type": "Branco",
+      "producer": "Dr. Loosen",
+      "alcohol_abv": 8.5,
+      "volume_ml": 750,
+      "description": "Levemente adocicado, com alta acidez. Notas de pêssego branco, maçã verde e um toque mineral.",
+      "buyer_rating": {
+        "average": 4.3,
+        "reviews_count": 13200
+      },
+      "sources": ["Dr. Loosen official site"]
+    },
+    {
+      "rank": 16,
+      "name": "Gérard Bertrand Côte des Roses Rosé",
+      "country": "França",
+      "region": "Languedoc",
+      "grape_varieties": ["Grenache", "Cinsault", "Syrah"],
+      "vintage": 2022,
+      "type": "Rosé",
+      "producer": "Gérard Bertrand",
+      "alcohol_abv": 13.0,
+      "volume_ml": 750,
+      "description": "Rosé seco e elegante, com aromas de frutas vermelhas frescas, cassis e um toque floral.",
+      "buyer_rating": {
+        "average": 4.2,
+        "reviews_count": 28000
+      },
+      "sources": ["Vivino", "Total Wine"]
+    },
+    {
+      "rank": 17,
+      "name": "Montes Alpha Cabernet Sauvignon",
+      "country": "Chile",
+      "region": "Valle de Colchagua",
+      "grape_varieties": ["Cabernet Sauvignon"],
+      "vintage": 2020,
+      "type": "Tinto",
+      "producer": "Montes",
+      "alcohol_abv": 14.5,
+      "volume_ml": 750,
+      "description": "Encorpado e elegante, com notas de cassis, chocolate, pimenta preta e carvalho tostado.",
+      "buyer_rating": {
+        "average": 4.3,
+        "reviews_count": 21500
+      },
+      "sources": ["Montes Wines official site"]
+    },
+    {
+      "rank": 18,
+      "name": "Ruffino Chianti Classico Riserva Ducale",
+      "country": "Itália",
+      "region": "Toscana",
+      "grape_varieties": ["Sangiovese", "Merlot", "Colorino"],
+      "vintage": 2018,
+      "type": "Tinto",
+      "producer": "Ruffino",
+      "alcohol_abv": 14.0,
+      "volume_ml": 750,
+      "description": "Aromas de cereja, violeta e tabaco. Corpo médio, com taninos bem integrados e acidez vibrante.",
+      "buyer_rating": {
+        "average": 4.2,
+        "reviews_count": 17600
+      },
+      "sources": ["Ruffino.com"]
+    },
+    {
+      "rank": 19,
+      "name": "Kim Crawford Sauvignon Blanc",
+      "country": "Nova Zelândia",
+      "region": "Marlborough",
+      "grape_varieties": ["Sauvignon Blanc"],
+      "vintage": 2022,
+      "type": "Branco",
+      "producer": "Kim Crawford",
+      "alcohol_abv": 13.0,
+      "volume_ml": 750,
+      "description": "Intenso e aromático, com notas de maracujá, melão e um toque herbáceo característico.",
+      "buyer_rating": {
+        "average": 4.3,
+        "reviews_count": 45000
+      },
+      "sources": ["Kim Crawford official site"]
+    },
+    {
+      "rank": 20,
+      "name": "Yellow Tail Shiraz",
+      "country": "Austrália",
+      "region": "South Eastern Australia",
+      "grape_varieties": ["Shiraz"],
+      "vintage": 2021,
+      "type": "Tinto",
+      "producer": "Casella Family Brands",
+      "alcohol_abv": 13.5,
+      "volume_ml": 750,
+      "description": "Fácil de beber, com sabores vibrantes de amora, especiarias e um toque de baunilha.",
+      "buyer_rating": {
+        "average": 3.7,
+        "reviews_count": 38900
+      },
+      "sources": ["Yellow Tail official site"]
+    },
+    {
+      "rank": 21,
+      "name": "Decoy by Duckhorn Cabernet Sauvignon",
+      "country": "EUA",
+      "region": "Califórnia",
+      "grape_varieties": ["Cabernet Sauvignon"],
+      "vintage": 2020,
+      "type": "Tinto",
+      "producer": "Duckhorn Portfolio",
+      "alcohol_abv": 13.9,
+      "volume_ml": 750,
+      "description": "Aromas de amora, cereja e um toque de especiarias. Corpo médio com taninos macios.",
+      "buyer_rating": {
+        "average": 4.2,
+        "reviews_count": 19870
+      },
+      "sources": ["Decoy Wines official site"]
+    },
+    {
+      "rank": 22,
+      "name": "Josh Cellars Cabernet Sauvignon",
+      "country": "EUA",
+      "region": "Califórnia",
+      "grape_varieties": ["Cabernet Sauvignon"],
+      "vintage": 2020,
+      "type": "Tinto",
+      "producer": "Josh Cellars",
+      "alcohol_abv": 13.5,
+      "volume_ml": 750,
+      "description": "Sabores de amora, baunilha e um toque de carvalho tostado. Final longo e macio.",
+      "buyer_rating": {
+        "average": 4.1,
+        "reviews_count": 52300
+      },
+      "sources": ["Josh Cellars official site"]
+    },
+    {
+      "rank": 23,
+      "name": "Bodega Norton Malbec Reserva",
+      "country": "Argentina",
+      "region": "Mendoza",
+      "grape_varieties": ["Malbec"],
+      "vintage": 2020,
+      "type": "Tinto",
+      "producer": "Bodega Norton",
+      "alcohol_abv": 14.5,
+      "volume_ml": 750,
+      "description": "Frutas vermelhas maduras, violetas e um toque de tabaco. Encorpado e bem estruturado.",
+      "buyer_rating": {
+        "average": 4.1,
+        "reviews_count": 18400
+      },
+      "sources": ["Norton.com.ar", "Vivino"]
+    },
+    {
+      "rank": 24,
+      "name": "Chandon Brut",
+      "country": "EUA",
+      "region": "Califórnia",
+      "grape_varieties": ["Chardonnay", "Pinot Noir", "Pinot Meunier"],
+      "vintage": null,
+      "type": "Espumante",
+      "producer": "Domaine Chandon",
+      "alcohol_abv": 12.0,
+      "volume_ml": 750,
+      "description": "Fresco e vibrante, com notas de maçã, pêra e um toque cítrico. Final limpo.",
+      "buyer_rating": {
+        "average": 4.2,
+        "reviews_count": 14500
+      },
+      "sources": ["Chandon.com"]
+    },
+    {
+      "rank": 25,
+      "name": "E. Guigal Côtes du Rhône Rouge",
+      "country": "França",
+      "region": "Rhône",
+      "grape_varieties": ["Syrah", "Grenache", "Mourvèdre"],
+      "vintage": 2019,
+      "type": "Tinto",
+      "producer": "E. Guigal",
+      "alcohol_abv": 14.0,
+      "volume_ml": 750,
+      "description": "Rico e encorpado, com notas de frutas escuras, especiarias e um toque defumado.",
+      "buyer_rating": {
+        "average": 4.1,
+        "reviews_count": 29800
+      },
+      "sources": ["Guigal.com", "Wine Spectator"]
+    },
+    {
+      "rank": 26,
+      "name": "Barefoot Merlot",
+      "country": "EUA",
+      "region": "Califórnia",
+      "grape_varieties": ["Merlot"],
+      "vintage": 2021,
+      "type": "Tinto",
+      "producer": "Barefoot Cellars",
+      "alcohol_abv": 13.0,
+      "volume_ml": 750,
+      "description": "Sabores de cereja preta, amora e chocolate. Macio, com taninos suaves.",
+      "buyer_rating": {
+        "average": 3.6,
+        "reviews_count": 21000
+      },
+      "sources": ["Barefootwine.com"]
+    },
+    {
+      "rank": 27,
+      "name": "Alamos Malbec",
+      "country": "Argentina",
+      "region": "Mendoza",
+      "grape_varieties": ["Malbec"],
+      "vintage": 2021,
+      "type": "Tinto",
+      "producer": "Alamos",
+      "alcohol_abv": 13.5,
+      "volume_ml": 750,
+      "description": "Notas de ameixa, cereja escura e um toque floral. Taninos suaves e final equilibrado.",
+      "buyer_rating": {
+        "average": 4.0,
+        "reviews_count": 34500
+      },
+      "sources": ["Alamoswines.com"]
+    },
+    {
+      "rank": 28,
+      "name": "Meiomi Pinot Noir",
+      "country": "EUA",
+      "region": "Califórnia",
+      "grape_varieties": ["Pinot Noir"],
+      "vintage": 2021,
+      "type": "Tinto",
+      "producer": "Meiomi",
+      "alcohol_abv": 13.7,
+      "volume_ml": 750,
+      "description": "Rico e frutado, com sabores de morango, moca e baunilha. Textura aveludada.",
+      "buyer_rating": {
+        "average": 4.4,
+        "reviews_count": 68000
+      },
+      "sources": ["Meiomi.com"]
+    },
+    {
+      "rank": 29,
+      "name": "Torres Sangre de Toro",
+      "country": "Espanha",
+      "region": "Catalunha",
+      "grape_varieties": ["Garnacha", "Cariñena"],
+      "vintage": 2021,
+      "type": "Tinto",
+      "producer": "Familia Torres",
+      "alcohol_abv": 13.5,
+      "volume_ml": 750,
+      "description": "Notas de frutas vermelhas maduras, especiarias e um toque de alcaçuz. Médio corpo.",
+      "buyer_rating": {
+        "average": 3.7,
+        "reviews_count": 15900
+      },
+      "sources": ["Torres.es"]
+    },
+    {
+      "rank": 30,
+      "name": "Porto Ferreira Tawny",
+      "country": "Portugal",
+      "region": "Douro",
+      "grape_varieties": ["Touriga Franca", "Tinta Roriz", "Tinta Barroca"],
+      "vintage": null,
+      "type": "Fortificado",
+      "producer": "Ferreira",
+      "alcohol_abv": 19.5,
+      "volume_ml": 750,
+      "description": "Aromas de frutas secas, nozes e um toque de especiarias. Final suave e adocicado.",
+      "buyer_rating": {
+        "average": 4.1,
+        "reviews_count": 8700
+      },
+      "sources": ["Sogrape.com"]
+    },
+    {
+      "rank": 31,
+      "name": "19 Crimes Red Blend",
+      "country": "Austrália",
+      "region": "South Eastern Australia",
+      "grape_varieties": ["Shiraz", "Cabernet Sauvignon", "Grenache"],
+      "vintage": 2021,
+      "type": "Tinto",
+      "producer": "19 Crimes",
+      "alcohol_abv": 13.5,
+      "volume_ml": 750,
+      "description": "Ousado, com notas de baunilha e chocolate. Final doce e suave.",
+      "buyer_rating": {
+        "average": 4.1,
+        "reviews_count": 91200
+      },
+      "sources": ["19crimes.com"]
+    },
+    {
+      "rank": 32,
+      "name": "Oyster Bay Sauvignon Blanc",
+      "country": "Nova Zelândia",
+      "region": "Marlborough",
+      "grape_varieties": ["Sauvignon Blanc"],
+      "vintage": 2022,
+      "type": "Branco",
+      "producer": "Oyster Bay",
+      "alcohol_abv": 13.0,
+      "volume_ml": 750,
+      "description": "Zesty e aromático com notas de limão, maracujá e um frescor mineral.",
+      "buyer_rating": {
+        "average": 4.1,
+        "reviews_count": 32100
+      },
+      "sources": ["oysterbaywines.com"]
+    },
+    {
+      "rank": 33,
+      "name": "Bogle Vineyards Phantom Red Blend",
+      "country": "EUA",
+      "region": "Califórnia",
+      "grape_varieties": ["Petite Sirah", "Zinfandel"],
+      "vintage": 2019,
+      "type": "Tinto",
+      "producer": "Bogle Vineyards",
+      "alcohol_abv": 14.5,
+      "volume_ml": 750,
+      "description": "Encorpado e rico, com notas de amora, pimenta preta e zimbro. Taninos robustos.",
+      "buyer_rating": {
+        "average": 4.3,
+        "reviews_count": 16500
+      },
+      "sources": ["boglewinery.com"]
+    },
+    {
+      "rank": 34,
+      "name": "Apothic Red",
+      "country": "EUA",
+      "region": "Califórnia",
+      "grape_varieties": ["Zinfandel", "Merlot", "Syrah", "Cabernet Sauvignon"],
+      "vintage": 2021,
+      "type": "Tinto",
+      "producer": "Apothic Wines",
+      "alcohol_abv": 13.5,
+      "volume_ml": 750,
+      "description": "Blend intenso com notas de cereja preta, baunilha e moca. Final suave e adocicado.",
+      "buyer_rating": {
+        "average": 4.1,
+        "reviews_count": 115300
+      },
+      "sources": ["apothic.com"]
+    },
+    {
+      "rank": 35,
+      "name": "Esporão Reserva Tinto",
+      "country": "Portugal",
+      "region": "Alentejo",
+      "grape_varieties": ["Aragonez", "Trincadeira", "Alicante Bouschet", "Cabernet Sauvignon"],
+      "vintage": 2019,
+      "type": "Tinto",
+      "producer": "Herdade do Esporão",
+      "alcohol_abv": 14.5,
+      "volume_ml": 750,
+      "description": "Complexo, com aromas de fruta preta madura, cacau e especiarias. Estruturado e persistente.",
+      "buyer_rating": {
+        "average": 4.2,
+        "reviews_count": 22400
+      },
+      "sources": ["esporao.com"]
+    },
+    {
+      "rank": 36,
+      "name": "Robert Mondavi Private Selection Cabernet Sauvignon",
+      "country": "EUA",
+      "region": "Califórnia",
+      "grape_varieties": ["Cabernet Sauvignon"],
+      "vintage": 2020,
+      "type": "Tinto",
+      "producer": "Robert Mondavi",
+      "alcohol_abv": 13.5,
+      "volume_ml": 750,
+      "description": "Sabores de cereja preta, amora e um toque de café. Envelhecido em barris de bourbon para mais complexidade.",
+      "buyer_rating": {
+        "average": 4.0,
+        "reviews_count": 13400
+      },
+      "sources": ["robertmondaviprivateselection.com"]
+    },
+    {
+      "rank": 37,
+      "name": "Masi Campofiorin",
+      "country": "Itália",
+      "region": "Veneto",
+      "grape_varieties": ["Corvina", "Rondinella", "Molinara"],
+      "vintage": 2019,
+      "type": "Tinto",
+      "producer": "Masi Agricola",
+      "alcohol_abv": 13.0,
+      "volume_ml": 750,
+      "description": "Aromas de cereja madura e ameixa. Rico, com taninos aveludados e notas de cacau e baunilha.",
+      "buyer_rating": {
+        "average": 4.1,
+        "reviews_count": 25700
+      },
+      "sources": ["masi.it"]
+    },
+    {
+      "rank": 38,
+      "name": "Matua Sauvignon Blanc",
+      "country": "Nova Zelândia",
+      "region": "Marlborough",
+      "grape_varieties": ["Sauvignon Blanc"],
+      "vintage": 2022,
+      "type": "Branco",
+      "producer": "Matua",
+      "alcohol_abv": 13.0,
+      "volume_ml": 750,
+      "description": "Refrescante, com notas de grapefruit, manjericão e um toque de maracujá. Final crocante.",
+      "buyer_rating": {
+        "average": 4.1,
+        "reviews_count": 24900
+      },
+      "sources": ["matua.co.nz"]
+    },
+    {
+      "rank": 39,
+      "name": "Trapiche Pure Malbec",
+      "country": "Argentina",
+      "region": "Mendoza",
+      "grape_varieties": ["Malbec"],
+      "vintage": 2022,
+      "type": "Tinto",
+      "producer": "Trapiche",
+      "alcohol_abv": 14.0,
+      "volume_ml": 750,
+      "description": "Vinho não envelhecido em carvalho, mostrando a pura expressão da uva. Frutado e vibrante.",
+      "buyer_rating": {
+        "average": 4.0,
+        "reviews_count": 11300
+      },
+      "sources": ["trapiche.com.ar"]
+    },
+    {
+      "rank": 40,
+      "name": "Whispering Angel Rosé",
+      "country": "França",
+      "region": "Provence",
+      "grape_varieties": ["Grenache", "Cinsault", "Rolle"],
+      "vintage": 2022,
+      "type": "Rosé",
+      "producer": "Château d'Esclans",
+      "alcohol_abv": 13.0,
+      "volume_ml": 750,
+      "description": "Fresco e seco, com notas de morango, pêssego e um toque mineral. Final suave.",
+      "buyer_rating": {
+        "average": 4.4,
+        "reviews_count": 55100
+      },
+      "sources": ["esclans.com"]
+    },
+    {
+      "rank": 41,
+      "name": "Errazuriz Max Reserva Cabernet Sauvignon",
+      "country": "Chile",
+      "region": "Aconcagua Valley",
+      "grape_varieties": ["Cabernet Sauvignon"],
+      "vintage": 2019,
+      "type": "Tinto",
+      "producer": "Viña Errázuriz",
+      "alcohol_abv": 14.0,
+      "volume_ml": 750,
+      "description": "Elegante, com notas de cereja preta, tabaco e chocolate. Taninos firmes e final longo.",
+      "buyer_rating": {
+        "average": 4.2,
+        "reviews_count": 10500
+      },
+      "sources": ["errazuriz.com"]
+    },
+    {
+      "rank": 42,
+      "name": "La Vieille Ferme Rouge",
+      "country": "França",
+      "region": "Rhône",
+      "grape_varieties": ["Grenache", "Syrah", "Carignan", "Cinsault"],
+      "vintage": 2021,
+      "type": "Tinto",
+      "producer": "Famille Perrin",
+      "alcohol_abv": 13.5,
+      "volume_ml": 750,
+      "description": "Frutado e fácil de beber. Aromas de frutas vermelhas e especiarias. Ótimo custo-benefício.",
+      "buyer_rating": {
+        "average": 3.8,
+        "reviews_count": 27800
+      },
+      "sources": ["lavieilleferme.com"]
+    },
+    {
+      "rank": 43,
+      "name": "Prosecco La Marca",
+      "country": "Itália",
+      "region": "Veneto",
+      "grape_varieties": ["Glera"],
+      "vintage": null,
+      "type": "Espumante",
+      "producer": "La Marca",
+      "alcohol_abv": 11.0,
+      "volume_ml": 750,
+      "description": "Fresco e crocante, com notas de maçã verde, pêssego branco e madressilva.",
+      "buyer_rating": {
+        "average": 4.2,
+        "reviews_count": 48900
+      },
+      "sources": ["lamarcaprosecco.com"]
+    },
+    {
+      "rank": 44,
+      "name": "Dark Horse Cabernet Sauvignon",
+      "country": "EUA",
+      "region": "Califórnia",
+      "grape_varieties": ["Cabernet Sauvignon"],
+      "vintage": 2020,
+      "type": "Tinto",
+      "producer": "Dark Horse",
+      "alcohol_abv": 14.0,
+      "volume_ml": 750,
+      "description": "Notas de amora, café expresso e chocolate amargo. Encorpado com um final robusto.",
+      "buyer_rating": {
+        "average": 3.9,
+        "reviews_count": 14200
+      },
+      "sources": ["darkhorsewine.com"]
+    },
+    {
+      "rank": 45,
+      "name": "Jacob's Creek Shiraz Cabernet",
+      "country": "Austrália",
+      "region": "South Eastern Australia",
+      "grape_varieties": ["Shiraz", "Cabernet Sauvignon"],
+      "vintage": 2021,
+      "type": "Tinto",
+      "producer": "Jacob's Creek",
+      "alcohol_abv": 14.0,
+      "volume_ml": 750,
+      "description": "Aromas de ameixa e pimenta preta, com taninos suaves e um toque de carvalho.",
+      "buyer_rating": {
+        "average": 3.7,
+        "reviews_count": 19500
+      },
+      "sources": ["jacobscreek.com"]
+    },
+    {
+      "rank": 46,
+      "name": "Bread & Butter Pinot Noir",
+      "country": "EUA",
+      "region": "Califórnia",
+      "grape_varieties": ["Pinot Noir"],
+      "vintage": 2021,
+      "type": "Tinto",
+      "producer": "Bread & Butter Wines",
+      "alcohol_abv": 13.5,
+      "volume_ml": 750,
+      "description": "Suave e sedoso, com sabores de cereja, framboesa e um toque de carvalho doce.",
+      "buyer_rating": {
+        "average": 4.2,
+        "reviews_count": 26700
+      },
+      "sources": ["breadandbutterwines.com"]
+    },
+    {
+      "rank": 47,
+      "name": "Campo Viejo Rioja Tempranillo",
+      "country": "Espanha",
+      "region": "Rioja",
+      "grape_varieties": ["Tempranillo"],
+      "vintage": 2020,
+      "type": "Tinto",
+      "producer": "Campo Viejo",
+      "alcohol_abv": 13.5,
+      "volume_ml": 750,
+      "description": "Aromas de frutas vermelhas, baunilha e coco. Macio e bem equilibrado.",
+      "buyer_rating": {
+        "average": 3.9,
+        "reviews_count": 33100
+      },
+      "sources": ["campoviejo.com"]
+    },
+    {
+      "rank": 48,
+      "name": "Dom Pérignon Brut",
+      "country": "França",
+      "region": "Champagne",
+      "grape_varieties": ["Chardonnay", "Pinot Noir"],
+      "vintage": 2013,
+      "type": "Espumante",
+      "producer": "Moët & Chandon",
+      "alcohol_abv": 12.5,
+      "volume_ml": 750,
+      "description": "Champagne de luxo. Complexo, com notas de amêndoa, cacau, frutas brancas e um toque tostado.",
+      "buyer_rating": {
+        "average": 4.8,
+        "reviews_count": 12900
+      },
+      "sources": ["domperignon.com"]
+    },
+    {
+      "rank": 49,
+      "name": "Trivento Reserve Malbec",
+      "country": "Argentina",
+      "region": "Mendoza",
+      "grape_varieties": ["Malbec"],
+      "vintage": 2021,
+      "type": "Tinto",
+      "producer": "Trivento",
+      "alcohol_abv": 14.0,
+      "volume_ml": 750,
+      "description": "Notas de ameixa, framboesa e baunilha. Taninos redondos e final persistente.",
+      "buyer_rating": {
+        "average": 4.0,
+        "reviews_count": 31000
+      },
+      "sources": ["trivento.com"]
+    },
+    {
+      "rank": 50,
+      "name": "Kendall-Jackson Vintner's Reserve Chardonnay",
+      "country": "EUA",
+      "region": "Califórnia",
+      "grape_varieties": ["Chardonnay"],
+      "vintage": 2021,
+      "type": "Branco",
+      "producer": "Kendall-Jackson",
+      "alcohol_abv": 13.5,
+      "volume_ml": 750,
+      "description": "Aromas de frutas tropicais, cítricos e baunilha. Textura cremosa devido ao envelhecimento em carvalho.",
+      "buyer_rating": {
+        "average": 4.2,
+        "reviews_count": 39800
+      },
+      "sources": ["kj.com", "Wine Spectator"]
+    },
+    {
+      "rank": 51,
+      "name": "Caymus-Suisun Grand Durif",
+      "country": "EUA",
+      "region": "Suisun Valley, California",
+      "grape_varieties": ["Petite Sirah"],
+      "vintage": 2020,
+      "type": "Tinto",
+      "producer": "Caymus-Suisun",
+      "alcohol_abv": 14.8,
+      "volume_ml": 750,
+      "description": "Opulento e rico, com notas de amora, cacau e especiarias. Textura aveludada.",
+      "buyer_rating": {
+        "average": 4.5,
+        "reviews_count": 8900
+      },
+      "sources": ["wagnerfamilyofwine.com"]
+    },
+    {
+      "rank": 52,
+      "name": "Beringer Founders' Estate Cabernet Sauvignon",
+      "country": "EUA",
+      "region": "California",
+      "grape_varieties": ["Cabernet Sauvignon"],
+      "vintage": 2020,
+      "type": "Tinto",
+      "producer": "Beringer",
+      "alcohol_abv": 13.9,
+      "volume_ml": 750,
+      "description": "Fácil de beber, com sabores de frutas pretas, baunilha e um toque de carvalho.",
+      "buyer_rating": {
+        "average": 3.8,
+        "reviews_count": 11200
+      },
+      "sources": ["beringer.com"]
+    },
+    {
+      "rank": 53,
+      "name": "Carmel Road Monterey Pinot Noir",
+      "country": "EUA",
+      "region": "Monterey, California",
+      "grape_varieties": ["Pinot Noir"],
+      "vintage": 2020,
+      "type": "Tinto",
+      "producer": "Carmel Road",
+      "alcohol_abv": 13.5,
+      "volume_ml": 750,
+      "description": "Aromas de cereja preta, framboesa e um toque de especiarias. Acidez vibrante.",
+      "buyer_rating": {
+        "average": 4.0,
+        "reviews_count": 7500
+      },
+      "sources": ["carmelroad.com"]
+    },
+    {
+      "rank": 54,
+      "name": "Joel Gott 815 Cabernet Sauvignon",
+      "country": "EUA",
+      "region": "California",
+      "grape_varieties": ["Cabernet Sauvignon"],
+      "vintage": 2019,
+      "type": "Tinto",
+      "producer": "Joel Gott Wines",
+      "alcohol_abv": 13.9,
+      "volume_ml": 750,
+      "description": "Notas de amora, moca e baunilha. Equilibrado, com taninos suaves.",
+      "buyer_rating": {
+        "average": 4.1,
+        "reviews_count": 18300
+      },
+      "sources": ["gottwines.com"]
+    },
+    {
+      "rank": 55,
+      "name": "Michele Chiarlo Le Orme Barbera d'Asti",
+      "country": "Itália",
+      "region": "Piemonte",
+      "grape_varieties": ["Barbera"],
+      "vintage": 2020,
+      "type": "Tinto",
+      "producer": "Michele Chiarlo",
+      "alcohol_abv": 13.5,
+      "volume_ml": 750,
+      "description": "Aromas de cereja e framboesa. Corpo médio, com acidez refrescante e taninos suaves.",
+      "buyer_rating": {
+        "average": 4.0,
+        "reviews_count": 9800
+      },
+      "sources": ["michelechiarlo.it"]
+    },
+    {
+      "rank": 56,
+      "name": "Château de Berne Inspiration Rosé",
+      "country": "França",
+      "region": "Provence",
+      "grape_varieties": ["Grenache", "Cinsault"],
+      "vintage": 2022,
+      "type": "Rosé",
+      "producer": "Château de Berne",
+      "alcohol_abv": 12.5,
+      "volume_ml": 750,
+      "description": "Leve e aromático, com notas de frutas de caroço e um toque de ervas.",
+      "buyer_rating": {
+        "average": 4.1,
+        "reviews_count": 6500
+      },
+      "sources": ["chateauberne.com"]
+    },
+    {
+      "rank": 57,
+      "name": "Sandeman Fine Ruby Porto",
+      "country": "Portugal",
+      "region": "Douro",
+      "grape_varieties": ["Touriga Franca", "Tinta Roriz", "Tinta Barroca"],
+      "vintage": null,
+      "type": "Fortificado",
+      "producer": "Sandeman",
+      "alcohol_abv": 19.5,
+      "volume_ml": 750,
+      "description": "Rico e robusto, com sabores de ameixa e frutas vermelhas maduras.",
+      "buyer_rating": {
+        "average": 4.0,
+        "reviews_count": 7100
+      },
+      "sources": ["sandeman.com"]
+    },
+    {
+      "rank": 58,
+      "name": "Sterling Vintner's Collection Cabernet Sauvignon",
+      "country": "EUA",
+      "region": "California",
+      "grape_varieties": ["Cabernet Sauvignon"],
+      "vintage": 2019,
+      "type": "Tinto",
+      "producer": "Sterling Vineyards",
+      "alcohol_abv": 13.5,
+      "volume_ml": 750,
+      "description": "Notas de amora, cereja preta e um toque de carvalho tostado. Final macio.",
+      "buyer_rating": {
+        "average": 3.9,
+        "reviews_count": 10200
+      },
+      "sources": ["sterlingvineyards.com"]
+    },
+    {
+      "rank": 59,
+      "name": "Baron Philippe de Rothschild Mouton Cadet",
+      "country": "França",
+      "region": "Bordeaux",
+      "grape_varieties": ["Merlot", "Cabernet Sauvignon", "Cabernet Franc"],
+      "vintage": 2020,
+      "type": "Tinto",
+      "producer": "Baron Philippe de Rothschild",
+      "alcohol_abv": 13.5,
+      "volume_ml": 750,
+      "description": "Um Bordeaux clássico, com aromas de cassis, cereja e um toque de especiarias.",
+      "buyer_rating": {
+        "average": 3.6,
+        "reviews_count": 18900
+      },
+      "sources": ["moutoncadet.com"]
+    },
+    {
+      "rank": 60,
+      "name": "Wairau River Sauvignon Blanc",
+      "country": "Nova Zelândia",
+      "region": "Marlborough",
+      "grape_varieties": ["Sauvignon Blanc"],
+      "vintage": 2022,
+      "type": "Branco",
+      "producer": "Wairau River Wines",
+      "alcohol_abv": 13.0,
+      "volume_ml": 750,
+      "description": "Expressivo, com notas de maracujá, groselha e um toque herbáceo.",
+      "buyer_rating": {
+        "average": 4.2,
+        "reviews_count": 8800
+      },
+      "sources": ["wairauriverwines.com"]
+    },
+    {
+      "rank": 61,
+      "name": "Sutter Home White Zinfandel",
+      "country": "EUA",
+      "region": "California",
+      "grape_varieties": ["Zinfandel"],
+      "vintage": 2022,
+      "type": "Rosé",
+      "producer": "Sutter Home",
+      "alcohol_abv": 9.5,
+      "volume_ml": 750,
+      "description": "Leve e doce, com sabores de morango e melão. Um clássico da Califórnia.",
+      "buyer_rating": {
+        "average": 3.8,
+        "reviews_count": 15400
+      },
+      "sources": ["sutterhome.com"]
+    },
+    {
+      "rank": 62,
+      "name": "J. Lohr Estates Seven Oaks Cabernet Sauvignon",
+      "country": "EUA",
+      "region": "Paso Robles, California",
+      "grape_varieties": ["Cabernet Sauvignon"],
+      "vintage": 2020,
+      "type": "Tinto",
+      "producer": "J. Lohr",
+      "alcohol_abv": 13.9,
+      "volume_ml": 750,
+      "description": "Aromas de cereja preta, ameixa e um toque de avelã. Taninos firmes.",
+      "buyer_rating": {
+        "average": 4.1,
+        "reviews_count": 21300
+      },
+      "sources": ["jlohr.com"]
+    },
+    {
+      "rank": 63,
+      "name": "Louis M. Martini Sonoma County Cabernet Sauvignon",
+      "country": "EUA",
+      "region": "Sonoma County, California",
+      "grape_varieties": ["Cabernet Sauvignon"],
+      "vintage": 2019,
+      "type": "Tinto",
+      "producer": "Louis M. Martini",
+      "alcohol_abv": 14.2,
+      "volume_ml": 750,
+      "description": "Notas de cereja, amora e cedro. Corpo médio, com um final longo e saboroso.",
+      "buyer_rating": {
+        "average": 4.0,
+        "reviews_count": 9100
+      },
+      "sources": ["louismartini.com"]
+    },
+    {
+      "rank": 64,
+      "name": "Frescobaldi Nipozzano Chianti Rufina Riserva",
+      "country": "Itália",
+      "region": "Toscana",
+      "grape_varieties": ["Sangiovese"],
+      "vintage": 2018,
+      "type": "Tinto",
+      "producer": "Frescobaldi",
+      "alcohol_abv": 13.5,
+      "volume_ml": 750,
+      "description": "Aromas de frutas vermelhas, especiarias e um toque balsâmico. Elegante e persistente.",
+      "buyer_rating": {
+        "average": 4.1,
+        "reviews_count": 13500
+      },
+      "sources": ["frescobaldi.com"]
+    },
+    {
+      "rank": 65,
+      "name": "Carnivor Cabernet Sauvignon",
+      "country": "EUA",
+      "region": "California",
+      "grape_varieties": ["Cabernet Sauvignon"],
+      "vintage": 2020,
+      "type": "Tinto",
+      "producer": "Carnivor Wines",
+      "alcohol_abv": 14.0,
+      "volume_ml": 750,
+      "description": "Ousado e macio, com sabores de amora, café e chocolate. Final aveludado.",
+      "buyer_rating": {
+        "average": 4.0,
+        "reviews_count": 24800
+      },
+      "sources": ["carnivorwine.com"]
+    },
+    {
+      "rank": 66,
+      "name": "Casa Ferreirinha Papa Figos",
+      "country": "Portugal",
+      "region": "Douro",
+      "grape_varieties": ["Tinta Roriz", "Touriga Franca", "Tinta Barroca"],
+      "vintage": 2021,
+      "type": "Tinto",
+      "producer": "Casa Ferreirinha",
+      "alcohol_abv": 13.0,
+      "volume_ml": 750,
+      "description": "Aromático, com notas de frutas vermelhas e um toque floral. Fresco e elegante.",
+      "buyer_rating": {
+        "average": 3.9,
+        "reviews_count": 12300
+      },
+      "sources": ["sogrape.com"]
+    },
+    {
+      "rank": 67,
+      "name": "Charles Smith Wines Kung Fu Girl Riesling",
+      "country": "EUA",
+      "region": "Columbia Valley, Washington",
+      "grape_varieties": ["Riesling"],
+      "vintage": 2022,
+      "type": "Branco",
+      "producer": "Charles Smith Wines",
+      "alcohol_abv": 12.0,
+      "volume_ml": 750,
+      "description": "Riesling seco com notas de pêssego branco, tangerina e um toque mineral.",
+      "buyer_rating": {
+        "average": 4.1,
+        "reviews_count": 19900
+      },
+      "sources": ["casasmith.com"]
+    },
+    {
+      "rank": 68,
+      "name": "Bonterra Organic Vineyards Cabernet Sauvignon",
+      "country": "EUA",
+      "region": "California",
+      "grape_varieties": ["Cabernet Sauvignon"],
+      "vintage": 2020,
+      "type": "Tinto",
+      "producer": "Bonterra",
+      "alcohol_abv": 13.8,
+      "volume_ml": 750,
+      "description": "Vinho orgânico com sabores de cereja, cassis e um toque de ervas.",
+      "buyer_rating": {
+        "average": 3.9,
+        "reviews_count": 8700
+      },
+      "sources": ["bonterra.com"]
+    },
+    {
+      "rank": 69,
+      "name": "Zonin Prosecco Cuvée 1821",
+      "country": "Itália",
+      "region": "Veneto",
+      "grape_varieties": ["Glera"],
+      "vintage": null,
+      "type": "Espumante",
+      "producer": "Zonin",
+      "alcohol_abv": 11.0,
+      "volume_ml": 750,
+      "description": "Leve e frutado, com notas de amêndoa e maçã. Ideal como aperitivo.",
+      "buyer_rating": {
+        "average": 4.0,
+        "reviews_count": 21500
+      },
+      "sources": ["zonin1821.it"]
+    },
+    {
+      "rank": 70,
+      "name": "Terrazas de los Andes Malbec Reserva",
+      "country": "Argentina",
+      "region": "Mendoza",
+      "grape_varieties": ["Malbec"],
+      "vintage": 2020,
+      "type": "Tinto",
+      "producer": "Terrazas de los Andes",
+      "alcohol_abv": 14.1,
+      "volume_ml": 750,
+      "description": "Intenso, com aromas de violeta, cereja preta e um toque de baunilha. Taninos suaves.",
+      "buyer_rating": {
+        "average": 4.1,
+        "reviews_count": 16900
+      },
+      "sources": ["terrazasdelosandes.com"]
+    },
+    {
+      "rank": 71,
+      "name": "Rodney Strong Sonoma County Cabernet Sauvignon",
+      "country": "EUA",
+      "region": "Sonoma County, California",
+      "grape_varieties": ["Cabernet Sauvignon"],
+      "vintage": 2019,
+      "type": "Tinto",
+      "producer": "Rodney Strong Vineyards",
+      "alcohol_abv": 14.5,
+      "volume_ml": 750,
+      "description": "Sabores de amora, cacau e cedro. Encorpado, com um final longo e rico.",
+      "buyer_rating": {
+        "average": 4.1,
+        "reviews_count": 15200
+      },
+      "sources": ["rodneystrong.com"]
+    },
+    {
+      "rank": 72,
+      "name": "Brancott Estate Sauvignon Blanc",
+      "country": "Nova Zelândia",
+      "region": "Marlborough",
+      "grape_varieties": ["Sauvignon Blanc"],
+      "vintage": 2022,
+      "type": "Branco",
+      "producer": "Brancott Estate",
+      "alcohol_abv": 13.0,
+      "volume_ml": 750,
+      "description": "Aromas de grapefruit, pimentão verde e maracujá. Acidez vibrante.",
+      "buyer_rating": {
+        "average": 4.0,
+        "reviews_count": 14800
+      },
+      "sources": ["brancottestate.com"]
+    },
+    {
+      "rank": 73,
+      "name": "Columbia Crest H3 Cabernet Sauvignon",
+      "country": "EUA",
+      "region": "Horse Heaven Hills, Washington",
+      "grape_varieties": ["Cabernet Sauvignon"],
+      "vintage": 2019,
+      "type": "Tinto",
+      "producer": "Columbia Crest",
+      "alcohol_abv": 14.5,
+      "volume_ml": 750,
+      "description": "Ousado, com notas de cereja preta, chocolate e um toque de especiarias.",
+      "buyer_rating": {
+        "average": 4.1,
+        "reviews_count": 11800
+      },
+      "sources": ["columbiacrest.com"]
+    },
+    {
+      "rank": 74,
+      "name": "Prunotto Fiulot Barbera d'Asti",
+      "country": "Itália",
+      "region": "Piemonte",
+      "grape_varieties": ["Barbera"],
+      "vintage": 2021,
+      "type": "Tinto",
+      "producer": "Prunotto",
+      "alcohol_abv": 13.5,
+      "volume_ml": 750,
+      "description": "Fresco e frutado, com aromas de ameixa e cereja. Acidez viva e final agradável.",
+      "buyer_rating": {
+        "average": 3.9,
+        "reviews_count": 7200
+      },
+      "sources": ["prunotto.it"]
+    },
+    {
+      "rank": 75,
+      "name": "Miraval Rosé",
+      "country": "França",
+      "region": "Provence",
+      "grape_varieties": ["Cinsault", "Grenache", "Syrah", "Rolle"],
+      "vintage": 2022,
+      "type": "Rosé",
+      "producer": "Miraval",
+      "alcohol_abv": 13.0,
+      "volume_ml": 750,
+      "description": "Elegante e aromático, com notas de frutas vermelhas frescas, flores brancas e um toque mineral.",
+      "buyer_rating": {
+        "average": 4.3,
+        "reviews_count": 31000
+      },
+      "sources": ["miraval.com"]
+    },
+    {
+      "rank": 76,
+      "name": "Two Hands Gnarly Dudes Shiraz",
+      "country": "Austrália",
+      "region": "Barossa Valley",
+      "grape_varieties": ["Shiraz"],
+      "vintage": 2020,
+      "type": "Tinto",
+      "producer": "Two Hands Wines",
+      "alcohol_abv": 14.2,
+      "volume_ml": 750,
+      "description": "Encorpado e complexo, com notas de amora, alcaçuz e um toque de fumaça.",
+      "buyer_rating": {
+        "average": 4.2,
+        "reviews_count": 9500
+      },
+      "sources": ["twohandswines.com"]
+    },
+    {
+      "rank": 77,
+      "name": "Planeta La Segreta Rosso",
+      "country": "Itália",
+      "region": "Sicília",
+      "grape_varieties": ["Nero d'Avola", "Merlot", "Syrah", "Cabernet Franc"],
+      "vintage": 2021,
+      "type": "Tinto",
+      "producer": "Planeta",
+      "alcohol_abv": 13.0,
+      "volume_ml": 750,
+      "description": "Aromas de frutas vermelhas e um toque de especiarias. Versátil e fácil de beber.",
+      "buyer_rating": {
+        "average": 3.9,
+        "reviews_count": 10100
+      },
+      "sources": ["planeta.it"]
+    },
+    {
+      "rank": 78,
+      "name": "Cupcake Vineyards Sauvignon Blanc",
+      "country": "EUA",
+      "region": "California",
+      "grape_varieties": ["Sauvignon Blanc"],
+      "vintage": 2022,
+      "type": "Branco",
+      "producer": "Cupcake Vineyards",
+      "alcohol_abv": 13.0,
+      "volume_ml": 750,
+      "description": "Notas de limão, nectarina e um toque de grapefruit. Final fresco e vibrante.",
+      "buyer_rating": {
+        "average": 3.9,
+        "reviews_count": 13600
+      },
+      "sources": ["cupcakevineyards.com"]
+    },
+    {
+      "rank": 79,
+      "name": "Michael David Freakshow Cabernet Sauvignon",
+      "country": "EUA",
+      "region": "Lodi, California",
+      "grape_varieties": ["Cabernet Sauvignon"],
+      "vintage": 2020,
+      "type": "Tinto",
+      "producer": "Michael David Winery",
+      "alcohol_abv": 14.5,
+      "volume_ml": 750,
+      "description": "Encorpado e rico, com aromas de cereja preta, framboesa e um toque de carvalho tostado.",
+      "buyer_rating": {
+        "average": 4.2,
+        "reviews_count": 25500
+      },
+      "sources": ["michaeldavidwinery.com"]
+    },
+    {
+      "rank": 80,
+      "name": "Simi Sonoma County Cabernet Sauvignon",
+      "country": "EUA",
+      "region": "Sonoma County, California",
+      "grape_varieties": ["Cabernet Sauvignon"],
+      "vintage": 2019,
+      "type": "Tinto",
+      "producer": "Simi Winery",
+      "alcohol_abv": 13.5,
+      "volume_ml": 750,
+      "description": "Elegante, com notas de cassis, cereja e um toque de baunilha. Taninos macios.",
+      "buyer_rating": {
+        "average": 4.0,
+        "reviews_count": 9900
+      },
+      "sources": ["simiwinery.com"]
+    },
+    {
+      "rank": 81,
+      "name": "Francis Ford Coppola Diamond Collection Claret",
+      "country": "EUA",
+      "region": "California",
+      "grape_varieties": ["Cabernet Sauvignon", "Petit Verdot", "Malbec", "Cabernet Franc"],
+      "vintage": 2019,
+      "type": "Tinto",
+      "producer": "Francis Ford Coppola Winery",
+      "alcohol_abv": 13.5,
+      "volume_ml": 750,
+      "description": "Rico e aveludado, com sabores de amora, cassis e um toque de anis.",
+      "buyer_rating": {
+        "average": 4.2,
+        "reviews_count": 19400
+      },
+      "sources": ["thefamilycoppola.com"]
+    },
+    {
+      "rank": 82,
+      "name": "Vietti Moscato d'Asti",
+      "country": "Itália",
+      "region": "Piemonte",
+      "grape_varieties": ["Moscato"],
+      "vintage": 2022,
+      "type": "Espumante",
+      "producer": "Vietti",
+      "alcohol_abv": 5.5,
+      "volume_ml": 750,
+      "description": "Doce e frisante, com aromas de pêssego, damasco e flor de laranjeira.",
+      "buyer_rating": {
+        "average": 4.4,
+        "reviews_count": 7800
+      },
+      "sources": ["vietti.com"]
+    },
+    {
+      "rank": 83,
+      "name": "Frei Brothers Reserve Cabernet Sauvignon",
+      "country": "EUA",
+      "region": "Alexander Valley, California",
+      "grape_varieties": ["Cabernet Sauvignon"],
+      "vintage": 2019,
+      "type": "Tinto",
+      "producer": "Frei Brothers",
+      "alcohol_abv": 14.8,
+      "volume_ml": 750,
+      "description": "Notas de amora, framboesa e um toque de cedro. Encorpado e bem estruturado.",
+      "buyer_rating": {
+        "average": 4.1,
+        "reviews_count": 6200
+      },
+      "sources": ["freibrothers.com"]
+    },
+    {
+      "rank": 84,
+      "name": "Rosemount Estate Diamond Label Shiraz",
+      "country": "Austrália",
+      "region": "South Eastern Australia",
+      "grape_varieties": ["Shiraz"],
+      "vintage": 2020,
+      "type": "Tinto",
+      "producer": "Rosemount Estate",
+      "alcohol_abv": 14.0,
+      "volume_ml": 750,
+      "description": "Sabores de amora e ameixa, com um toque de especiarias e pimenta.",
+      "buyer_rating": {
+        "average": 3.7,
+        "reviews_count": 8100
+      },
+      "sources": ["rosemountestate.com"]
+    },
+    {
+      "rank": 85,
+      "name": "Château Tanunda Grand Barossa Shiraz",
+      "country": "Austrália",
+      "region": "Barossa Valley",
+      "grape_varieties": ["Shiraz"],
+      "vintage": 2020,
+      "type": "Tinto",
+      "producer": "Château Tanunda",
+      "alcohol_abv": 14.5,
+      "volume_ml": 750,
+      "description": "Rico e encorpado, com notas de ameixa, chocolate amargo e um toque de carvalho.",
+      "buyer_rating": {
+        "average": 4.1,
+        "reviews_count": 9300
+      },
+      "sources": ["chateautanunda.com"]
+    },
+    {
+      "rank": 86,
+      "name": "Willamette Valley Vineyards Whole Cluster Pinot Noir",
+      "country": "EUA",
+      "region": "Willamette Valley, Oregon",
+      "grape_varieties": ["Pinot Noir"],
+      "vintage": 2021,
+      "type": "Tinto",
+      "producer": "Willamette Valley Vineyards",
+      "alcohol_abv": 13.5,
+      "volume_ml": 750,
+      "description": "Leve e frutado, com sabores de cereja, framboesa e um toque terroso.",
+      "buyer_rating": {
+        "average": 4.2,
+        "reviews_count": 5400
+      },
+      "sources": ["wvv.com"]
+    },
+    {
+      "rank": 87,
+      "name": "Santa Carolina Reserva de Familia Carmenere",
+      "country": "Chile",
+      "region": "Valle de Rapel",
+      "grape_varieties": ["Carmenere"],
+      "vintage": 2019,
+      "type": "Tinto",
+      "producer": "Santa Carolina",
+      "alcohol_abv": 14.0,
+      "volume_ml": 750,
+      "description": "Notas de amora, pimenta preta e um toque de café. Taninos macios e final longo.",
+      "buyer_rating": {
+        "average": 4.1,
+        "reviews_count": 8600
+      },
+      "sources": ["santacarolina.cl"]
+    },
+    {
+      "rank": 88,
+      "name": "Piper-Heidsieck Cuvée Brut",
+      "country": "França",
+      "region": "Champagne",
+      "grape_varieties": ["Pinot Noir", "Pinot Meunier", "Chardonnay"],
+      "vintage": null,
+      "type": "Espumante",
+      "producer": "Piper-Heidsieck",
+      "alcohol_abv": 12.0,
+      "volume_ml": 750,
+      "description": "Vibrante e fresco, com aromas de pêra, maçã e um toque cítrico.",
+      "buyer_rating": {
+        "average": 4.3,
+        "reviews_count": 17800
+      },
+      "sources": ["piper-heidsieck.com"]
+    },
+    {
+      "rank": 89,
+      "name": "Cline Ancient Vines Zinfandel",
+      "country": "EUA",
+      "region": "Lodi, California",
+      "grape_varieties": ["Zinfandel"],
+      "vintage": 2020,
+      "type": "Tinto",
+      "producer": "Cline Cellars",
+      "alcohol_abv": 14.5,
+      "volume_ml": 750,
+      "description": "Sabores de amora, morango e um toque de pimenta. Final longo e picante.",
+      "buyer_rating": {
+        "average": 4.1,
+        "reviews_count": 13300
+      },
+      "sources": ["clinecellars.com"]
+    },
+    {
+      "rank": 90,
+      "name": "Château d'Yquem",
+      "country": "França",
+      "region": "Sauternes, Bordeaux",
+      "grape_varieties": ["Sémillon", "Sauvignon Blanc"],
+      "vintage": 2017,
+      "type": "Outros",
+      "producer": "Château d'Yquem",
+      "alcohol_abv": 14.0,
+      "volume_ml": 375,
+      "description": "Vinho de sobremesa lendário. Notas de damasco, mel, amêndoa e um toque de baunilha.",
+      "buyer_rating": {
+        "average": 4.8,
+        "reviews_count": 2500
+      },
+      "sources": ["yquem.fr"]
+    },
+    {
+      "rank": 91,
+      "name": "Locations F",
+      "country": "França",
+      "region": "Rhône, Roussillon, Bordeaux",
+      "grape_varieties": ["Grenache", "Syrah", "Bordeaux Varietals"],
+      "vintage": null,
+      "type": "Tinto",
+      "producer": "Locations",
+      "alcohol_abv": 15.0,
+      "volume_ml": 750,
+      "description": "Blend de várias regiões da França. Notas de framboesa, lavanda e um toque mineral.",
+      "buyer_rating": {
+        "average": 4.2,
+        "reviews_count": 7900
+      },
+      "sources": ["locationswine.com"]
+    },
+    {
+      "rank": 92,
+      "name": "Stags' Leap Winery Petite Sirah",
+      "country": "EUA",
+      "region": "Napa Valley, California",
+      "grape_varieties": ["Petite Sirah"],
+      "vintage": 2019,
+      "type": "Tinto",
+      "producer": "Stags' Leap Winery",
+      "alcohol_abv": 14.5,
+      "volume_ml": 750,
+      "description": "Encorpado e intenso, com sabores de amora, mirtilo e um toque de pimenta branca.",
+      "buyer_rating": {
+        "average": 4.4,
+        "reviews_count": 6100
+      },
+      "sources": ["stagsleap.com"]
+    },
+    {
+      "rank": 93,
+      "name": "Seghesio Sonoma Zinfandel",
+      "country": "EUA",
+      "region": "Sonoma County, California",
+      "grape_varieties": ["Zinfandel"],
+      "vintage": 2021,
+      "type": "Tinto",
+      "producer": "Seghesio Family Vineyards",
+      "alcohol_abv": 14.8,
+      "volume_ml": 750,
+      "description": "Aromas de amora, framboesa e um toque de especiarias. Equilibrado e versátil.",
+      "buyer_rating": {
+        "average": 4.3,
+        "reviews_count": 11500
+      },
+      "sources": ["seghesio.com"]
+    },
+    {
+      "rank": 94,
+      "name": "Banfi Chianti Classico",
+      "country": "Itália",
+      "region": "Toscana",
+      "grape_varieties": ["Sangiovese"],
+      "vintage": 2020,
+      "type": "Tinto",
+      "producer": "Castello Banfi",
+      "alcohol_abv": 13.5,
+      "volume_ml": 750,
+      "description": "Notas de cereja e ameixa, com taninos macios e um final persistente.",
+      "buyer_rating": {
+        "average": 3.9,
+        "reviews_count": 10800
+      },
+      "sources": ["castellobanfi.com"]
+    },
+    {
+      "rank": 95,
+      "name": "Conundrum White Blend",
+      "country": "EUA",
+      "region": "California",
+      "grape_varieties": ["Chardonnay", "Sauvignon Blanc", "Semillon", "Muscat Canelli", "Viognier"],
+      "vintage": 2021,
+      "type": "Branco",
+      "producer": "Conundrum",
+      "alcohol_abv": 13.5,
+      "volume_ml": 750,
+      "description": "Aromático e complexo, com notas de damasco, pêra e um toque tropical.",
+      "buyer_rating": {
+        "average": 4.2,
+        "reviews_count": 18100
+      },
+      "sources": ["wagnerfamilyofwine.com"]
+    },
+    {
+      "rank": 96,
+      "name": "Yalumba Y Series Viognier",
+      "country": "Austrália",
+      "region": "South Australia",
+      "grape_varieties": ["Viognier"],
+      "vintage": 2022,
+      "type": "Branco",
+      "producer": "Yalumba",
+      "alcohol_abv": 13.5,
+      "volume_ml": 750,
+      "description": "Aromas de damasco, madressilva e um toque de gengibre. Textura sedosa.",
+      "buyer_rating": {
+        "average": 4.0,
+        "reviews_count": 7600
+      },
+      "sources": ["yalumba.com"]
+    },
+    {
+      "rank": 97,
+      "name": "Taittinger Brut La Française",
+      "country": "França",
+      "region": "Champagne",
+      "grape_varieties": ["Chardonnay", "Pinot Noir", "Pinot Meunier"],
+      "vintage": null,
+      "type": "Espumante",
+      "producer": "Taittinger",
+      "alcohol_abv": 12.5,
+      "volume_ml": 750,
+      "description": "Elegante e equilibrado, com notas de pêssego, flores brancas e brioche.",
+      "buyer_rating": {
+        "average": 4.4,
+        "reviews_count": 21300
+      },
+      "sources": ["taittinger.com"]
+    },
+    {
+      "rank": 98,
+      "name": "Lapostolle Cuvée Alexandre Carménère",
+      "country": "Chile",
+      "region": "Valle de Colchagua",
+      "grape_varieties": ["Carmenere"],
+      "vintage": 2019,
+      "type": "Tinto",
+      "producer": "Lapostolle",
+      "alcohol_abv": 14.5,
+      "volume_ml": 750,
+      "description": "Complexo, com aromas de frutas vermelhas, pimenta preta e um toque de chocolate.",
+      "buyer_rating": {
+        "average": 4.2,
+        "reviews_count": 8300
+      },
+      "sources": ["lapostolle.com"]
+    },
+    {
+      "rank": 99,
+      "name": "Ravenswood Vintners Blend Old Vine Zinfandel",
+      "country": "EUA",
+      "region": "California",
+      "grape_varieties": ["Zinfandel"],
+      "vintage": 2019,
+      "type": "Tinto",
+      "producer": "Ravenswood",
+      "alcohol_abv": 13.5,
+      "volume_ml": 750,
+      "description": "Ousado e picante, com sabores de amora, ameixa e um toque de pimenta preta.",
+      "buyer_rating": {
+        "average": 3.9,
+        "reviews_count": 14900
+      },
+      "sources": ["ravenswoodwinery.com"]
+    },
+    {
+      "rank": 100,
+      "name": "Georges Duboeuf Beaujolais-Villages",
+      "country": "França",
+      "region": "Borgonha",
+      "grape_varieties": ["Gamay"],
+      "vintage": 2021,
+      "type": "Tinto",
+      "producer": "Les Vins Georges Duboeuf",
+      "alcohol_abv": 13.0,
+      "volume_ml": 750,
+      "description": "Leve e frutado, com notas de cereja e framboesa. Fácil de beber e versátil.",
+      "buyer_rating": {
+        "average": 3.7,
+        "reviews_count": 12600
+      },
+      "sources": ["duboeuf.com"]
+    },
+    {
+      "rank": 101,
+      "name": "Quinta do Morgado Suave",
+      "country": "Brasil",
+      "region": "Serra Gaúcha",
+      "grape_varieties": ["Uvas Americanas"],
+      "vintage": "Não Especificado",
+      "type": "Tinto Suave",
+      "producer": "Fente",
+      "alcohol_abv": 10.9,
+      "volume_ml": 750,
+      "description": "Ousado e picante, com sabores de amora, ameixa e um toque de pimenta preta.",
+      "buyer_rating": {
+        "average": 4.9,
+        "reviews_count": 1246
+      },
+      "sources": ["ravenswoodwinery.com"]
+    }
+  ],
+  "generated_date": "2025-10-23",
+  "note": "Esta é uma amostra de 100 vinhos variados. A lista completa de 1000 excede o limite de exibição. As posições e avaliações são baseadas em dados públicos e podem variar."
+}

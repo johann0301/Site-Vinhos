@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Catálogo de Vinhos</h1>
+    <p>Exibindo todos os {{ vinhos|length }} vinhos do nosso acervo.</p>
+    
+    <hr>
+    
+    {% for vinho in vinhos %}
+        <div class="vinho-card">
+            <h3>{{ vinho.rank }}. {{ vinho.name }} ({{ vinho.vintage }})</h3>
+            <p>
+                <strong>Tipo:</strong> {{ vinho.type }} | 
+                <strong>País:</strong> {{ vinho.country }} | 
+                <strong>Região:</strong> {{ vinho.region }}
+            </p>
+            <p><strong>Uvas:</strong> {{ vinho.grape_varieties }}</p>
+            <p><strong>Nota:</strong> {{ vinho.average_rating }} ({{ vinho.reviews_count }} avaliações)</p>
+            <p><em>{{ vinho.description }}</em></p>
+        </div>
+    {% else %}
+        <p>Nenhum vinho encontrado no banco de dados. Execute `flask init-db`.</p>
+    {% endfor %}
+{% endblock %}
