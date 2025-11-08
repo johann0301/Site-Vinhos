@@ -1,6 +1,23 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Bem-vindo ao Site-Vinhos 🍷</h1>
-    <p>Use o menu acima para navegar pelo catálogo ou para receber recomendações personalizadas.</p>
+    <style>
+        /* Estilo específico para esta página */
+        .hero {
+            text-align: center;
+            padding: 2rem 0;
+        }
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+    </style>
+
+    <div class="hero">
+        <h1>Bem-vindo ao Site-Vinhos 🍷</h1>
+        <p>Explore nosso catálogo ou receba recomendações personalizadas dos melhores vinhos.</p>
+        
+        <a href="{{ url_for('catalog') }}" class="btn">Ver Catálogo</a>
+        <a href="{{ url_for('recommend') }}" class="btn" style="background-color: #7a7a7a; margin-left: 1rem;">Receber Recomendações</a>
+    </div>
 {% endblock %}

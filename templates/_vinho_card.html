@@ -1,0 +1,26 @@
+<div class="vinho-card">
+    
+    <div class="card-header">
+        <h3>{% if vinho.rank %}{{ vinho.rank }}. {% endif %}{{ vinho.name }} ({{ vinho.vintage }})</h3>
+        <p>
+            <strong>Tipo:</strong> {{ vinho.type }} | 
+            <strong>País:</strong> {{ vinho.country }}
+        </p>
+    </div>
+    
+    <div class="card-body">
+        <p><strong>Uvas:</strong> {{ vinho.grape_varieties }}</p>
+        
+        {% if vinho.description %}
+            <p><em>{{ vinho.description }}</em></p>
+        {% endif %}
+    </div>
+    
+    <div class="card-footer">
+        <div class="vinho-nota">
+            <span class="nota-valor">{{ "%.1f"|format(vinho.average_rating) }}</span>
+            <span class="nota-avaliacoes">({{ vinho.reviews_count }} avaliações)</span>
+        </div>
+    </div>
+
+</div>

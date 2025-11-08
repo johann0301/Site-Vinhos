@@ -1,0 +1,263 @@
+/* ---- VARIÁVEIS DE COR ---- */
+:root {
+    --cor-vinho: #5C001F;
+    --cor-fundo: #f8f8f8; /* Um cinza um pouco mais claro */
+    --cor-texto: #333;
+    --cor-branca: #ffffff;
+    --sombra-suave: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* ---- RESET BÁSICO E FONTES ---- */
+body {
+    font-family: 'Lato', Arial, sans-serif; /* Fonte mais limpa para leitura */
+    margin: 0;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif; /* Fonte mais elegante para títulos */
+    color: var(--cor-vinho);
+}
+
+/* ---- NAVEGAÇÃO (NAV) ---- */
+nav {
+    background-color: var(--cor-vinho);
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    position: sticky; /* Fica no topo ao rolar */
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between; /* Alinha o logo à esquerda e links à direita */
+    align-items: center;
+}
+
+.nav-logo {
+    color: var(--cor-branca);
+    text-decoration: none;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+nav a {
+    color: var(--cor-branca);
+    text-decoration: none;
+    margin-left: 1.5rem; /* Espaçamento entre os links */
+    font-weight: bold;
+    transition: opacity 0.3s ease; /* Efeito suave */
+}
+
+nav a:hover {
+    opacity: 0.8; /* Efeito hover sutil */
+}
+
+/* ---- CONTAINER PRINCIPAL ---- */
+.container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem; /* Mais espaço interno */
+    background-color: var(--cor-branca);
+    border-radius: 8px;
+    box-shadow: var(--sombra-suave); /* Sombra suave para "elevar" o card */
+}
+
+/* ---- CARTÃO DE VINHO (PARA O CATÁLOGO) ---- */
+.vinho-card {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: var(--sombra-suave);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    /* --- Novas regras --- */
+    display: flex; /* Ativa o Flexbox */
+    flex-direction: column; /* Empilha os filhos (header, body, footer) */
+    justify-content: space-between; /* Garante que o footer fique embaixo */
+}
+
+.vinho-card:hover {
+    transform: translateY(-5px); /* Efeito de "levantar" no hover */
+    box-shadow: 0 8px 15px rgba(0,0,0,0.08);
+}
+
+.vinho-card h3 {
+    margin-top: 0;
+}
+
+.card-body {
+    flex-grow: 1; /* Faz o corpo (descrição) crescer e ocupar o espaço */
+    margin: 1rem 0;
+}
+.card-body p {
+    margin: 0.5rem 0; /* Espaçamento interno */
+}
+.card-body em {
+    color: #555; /* Descrição com uma cor mais suave */
+    font-size: 0.95rem;
+}
+
+.card-footer {
+    border-top: 1px solid #eee; /* Linha sutil separando o rodapé */
+    padding-top: 1rem;
+    margin-top: 1rem;
+}
+
+.vinho-nota {
+    display: flex;
+    justify-content: space-between; /* Nota de um lado, avaliações do outro */
+    align-items: baseline; /* Alinha os textos */
+}
+
+.vinho-nota .nota-valor {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--cor-vinho);
+    font-family: 'Playfair Display', serif;
+}
+
+.vinho-nota .nota-avaliacoes {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* ---- FORMULÁRIOS (PARA A PÁGINA DE RECOMENDAÇÃO) ---- */
+form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+form select, form input {
+    width: 100%;
+    padding: 0.8rem; /* Mais fáceis de clicar */
+    margin-bottom: 1.2rem;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* ---- BOTÕES ---- */
+.btn {
+    background-color: var(--cor-vinho);
+    color: var(--cor-branca);
+    padding: 0.8rem 1.5rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1rem;
+    text-decoration: none; /* Para links com a classe .btn */
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #4a0019; /* Um tom mais escuro de vinho no hover */
+}
+
+/* ---- LAYOUT DO CATÁLOGO ---- */
+.catalogo-grid {
+    display: grid;
+    
+    /* * Isso é o "pulo do gato":
+     * - Cria colunas de no mínimo 300px (minmax).
+     * - 'auto-fill' cria quantas colunas couberem na tela.
+     * - '1fr' faz com que elas se expandam para preencher o espaço.
+     */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    
+    /* Espaçamento entre os cards */
+    gap: 1.5rem;
+}
+
+/* ---- FORMULÁRIO DE RECOMENDAÇÃO ---- */
+.form-grid {
+    display: grid;
+    /* 3 colunas: label, input, e a próxima linha */
+    grid-template-columns: auto 1fr; /* Coluna da label se auto-ajusta, input cresce */
+    gap: 1.2rem 1rem; /* Espaçamento vertical e horizontal */
+    align-items: center; /* Alinha labels e inputs na mesma altura */
+    max-width: 600px; /* Limita a largura do formulário */
+    margin-bottom: 2rem;
+}
+
+.form-grid label {
+    margin-bottom: 0; /* O gap do grid já cuida disso */
+    font-weight: bold;
+    text-align: right; /* Alinha as labels à direita, fica elegante */
+}
+
+/* Para o botão ocupar as duas colunas */
+.form-grid .form-span-2 {
+    grid-column: span 2;
+    text-align: center; /* Centraliza o botão */
+}
+
+/* Ajuste para telas pequenas (celular) */
+@media (max-width: 600px) {
+    .form-grid {
+        grid-template-columns: 1fr; /* Coluna única no celular */
+    }
+    .form-grid label {
+        text-align: left; /* Alinhamento padrão no celular */
+        margin-bottom: 0.2rem;
+    }
+}
+
+/* ---- PAGINAÇÃO ---- */
+.pagination {
+    text-align: center;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pagination span {
+    font-weight: bold;
+    color: #555;
+}
+
+/* Um estilo de botão "secundário" para o link 'anterior' */
+.btn-outline {
+    background-color: transparent;
+    color: var(--cor-vinho);
+    border: 2px solid var(--cor-vinho);
+}
+.btn-outline:hover {
+    background-color: var(--cor-vinho);
+    color: var(--cor-branca);
+}
+
+/* ---- AJUSTE FINO DO TÍTULO DO CARD ---- */
+
+/* * Alvo: O <h3> (nome do vinho) que está
+ * dentro de um .card-header
+ */
+.card-header h3 {
+    /* * Trocamos para 'Lato', a mesma fonte do corpo do texto.
+     * É uma fonte sans-serif, muito mais legível para textos menores.
+     * Mantemos o 'font-weight: 700' (bold) para dar destaque.
+     */
+    font-family: 'Lato', Arial, sans-serif;
+    
+    /* * Aumentando o tamanho da fonte.
+     * O padrão do navegador para h3 é ~1.17rem.
+     * Vamos aumentar para 1.4rem. Ajuste se achar melhor!
+     */
+    font-size: 1.4rem;
+
+    /* * Adicionamos um espaçamento de linha um pouco maior 
+     * caso o nome do vinho quebre em duas linhas.
+     */
+    line-height: 1.4;
+}

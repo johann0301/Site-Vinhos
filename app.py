@@ -1,5 +1,5 @@
 import json
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request , jsonify
 from flask_sqlalchemy import SQLAlchemy
 
 # --- Configuração do Aplicativo ---
@@ -16,6 +16,8 @@ db = SQLAlchemy(app)
 # Esta classe define a tabela no banco de dados.
 # Ela é baseada na estrutura do seu JSON.
 class Vinho(db.Model):
+    # ---- COLUNAS DA TABELA ----
+    # GARANTA QUE TODAS ESTÃO INDENTADAS CORRETAMENTE
     id = db.Column(db.Integer, primary_key=True)
     rank = db.Column(db.Integer)
     name = db.Column(db.String(200), nullable=False)
@@ -32,8 +34,27 @@ class Vinho(db.Model):
     average_rating = db.Column(db.Float)
     reviews_count = db.Column(db.Integer)
 
+    # ---- MÉTODOS DA CLASSE ----
+    # ELES DEVEM ESTAR NO MESMO NÍVEL DE INDENTAÇÃO DAS COLUNAS
+    
     def __repr__(self):
         return f'<Vinho {self.name}>'
+
+    def to_dict(self):
+        """Converte o objeto Vinho em um dicionário."""
+        return {
+            'id': self.id,
+            'rank': self.rank,
+            'name': self.name,
+            'country': self.country,
+            'region': self.region,
+            'grape_varieties': self.grape_varieties,
+            'vintage': self.vintage,
+            'type': self.type,
+            'average_rating': self.average_rating,
+            'reviews_count': self.reviews_count,
+            'description': self.description
+        }
 
 
 # --- Comando para Carregar o JSON no Banco de Dados ---
@@ -100,41 +121,68 @@ def index():
 
 @app.route('/catalog')
 def catalog():
-    """Página do Catálogo - Mostra todos os vinhos"""
-    # Pega todos os vinhos do banco, ordenados pelo ranking
-    vinhos_lista = Vinho.query.order_by(Vinho.rank).all()
-    return render_template('catalog.html', vinhos=vinhos_lista)
+    """Página do Catálogo - Agora com paginação!"""
+    
+    # 1. Pega o número da página da URL (ex: /catalog?page=2)
+    # O padrão é 1, e o 'type=int' garante que é um número.
+    page = request.args.get('page', 1, type=int)
+    
+    # 2. Em vez de .all(), usamos .paginate()
+    # Vamos mostrar 12 vinhos por página
+    pagination = Vinho.query.order_by(Vinho.rank).paginate(
+        page=page, 
+        per_page=12, 
+        error_out=False
+    )
+    
+    # 3. 'pagination.items' contém os 12 vinhos da página atual
+    # Passamos o objeto 'pagination' inteiro para o template
+    return render_template('catalog.html', pagination=pagination)
 
-@app.route('/recommend', methods=['GET', 'POST'])
+@app.route('/recommend')
 def recommend():
-    """Página de Recomendações - Baseado nos gostos do usuário"""
-    if request.method == 'POST':
-        # 1. Pega os dados do formulário
-        pref_type = request.form.get('type')
-        pref_grape = request.form.get('grape')
-        pref_min_rating = request.form.get('min_rating', 0, type=float)
+    """Página de Recomendações - Apenas serve o HTML. A busca é via JS."""
 
-        # 2. Constrói a consulta ao banco de dados (query)
-        query = Vinho.query
+    # Pega a lista de países para preencher o <select>
+    countries_db = db.session.query(Vinho.country).distinct().all()
+    countries = sorted([c[0] for c in countries_db if c[0]])
 
-        if pref_type:
-            query = query.filter(Vinho.type == pref_type)
-        
-        if pref_grape:
-            # 'ilike' faz uma busca case-insensitive (ignora maiúsculas/minúsculas)
-            query = query.filter(Vinho.grape_varieties.ilike(f'%{pref_grape}%'))
-            
-        if pref_min_rating > 0:
-            query = query.filter(Vinho.average_rating >= pref_min_rating)
+    # Apenas renderiza a página. Sem 'results', sem 'search_done'.
+    return render_template('recommend.html', countries=countries)
 
-        # 3. Executa a query e pega os resultados
-        # Ordena pela melhor nota e limita a 20 resultados
-        results = query.order_by(Vinho.average_rating.desc()).limit(20).all()
-        
-        return render_template('recommend.html', results=results, search_done=True)
+@app.route('/api/recomendar')
+def api_recomendar():
+    """Rota da API que retorna vinhos em formato JSON."""
 
-    # Se for GET, apenas mostra a página com o formulário
-    return render_template('recommend.html', results=None, search_done=False)
+    # 1. Pega os dados dos parâmetros da URL (ex: /api/recomendar?type=Tinto)
+    # Usamos request.args para requisições GET
+    pref_type = request.args.get('type')
+    pref_grape = request.args.get('grape')
+    pref_min_rating = request.args.get('min_rating', 0, type=float)
+    pref_country = request.args.get('country')
+
+    # 2. Constrói a consulta (exatamente como antes)
+    query = Vinho.query
+
+    if pref_type:
+        query = query.filter(Vinho.type == pref_type)
+
+    if pref_grape:
+        query = query.filter(Vinho.grape_varieties.ilike(f'%{pref_grape}%'))
+
+    if pref_min_rating > 0:
+        query = query.filter(Vinho.average_rating >= pref_min_rating)
+
+    if pref_country:
+        query = query.filter(Vinho.country == pref_country)
+
+    # 3. Executa a query
+    results = query.order_by(Vinho.average_rating.desc()).limit(20).all()
+
+    # 4. Converte os resultados para dicionários e retorna como JSON
+    # Esta é a grande mudança!
+    results_list = [vinho.to_dict() for vinho in results]
+    return jsonify(results_list)
 
 
 # --- Executa o Aplicativo ---

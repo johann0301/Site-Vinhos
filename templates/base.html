@@ -4,27 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Site-Vinhos</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 0; background-color: #f4f4f4; }
-        nav { background-color: #5C001F; padding: 1rem; }
-        nav a { color: white; text-decoration: none; margin-right: 1rem; font-weight: bold; }
-        .container { max-width: 900px; margin: 2rem auto; padding: 1rem; background-color: white; border-radius: 8px; }
-        .vinho-card { border: 1px solid #ddd; border-radius: 5px; padding: 1rem; margin-bottom: 1rem; }
-        .vinho-card h3 { margin-top: 0; }
-        form label { display: block; margin-bottom: 0.5rem; }
-        form select, form input { width: 100%; padding: 0.5rem; margin-bottom: 1rem; box-sizing: border-box; }
-        form button { background-color: #5C001F; color: white; padding: 0.7rem 1rem; border: none; cursor: pointer; }
-    </style>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
     <nav>
-        <a href="{{ url_for('index') }}">Home</a>
-        <a href="{{ url_for('catalog') }}">Catálogo</a>
-        <a href="{{ url_for('recommend') }}">Recomendações</a>
+        <div class="nav-container">
+            <a href="{{ url_for('index') }}" class="nav-logo">Site-Vinhos 🍷</a>
+            <div class="nav-links">
+                <a href="{{ url_for('index') }}">Home</a>
+                <a href="{{ url_for('catalog') }}">Catálogo</a>
+                <a href="{{ url_for('recommend') }}">Recomendações</a>
+            </div>
+        </div>
     </nav>
     
     <div class="container">
         {% block content %}{% endblock %}
     </div>
+    
+    <script src="{{ url_for('static', filename='js/app.js') }}" defer></script>
+
 </body>
 </html>
