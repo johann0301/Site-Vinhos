@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Dashboard do Acervo</h1>
+    <p>Uma análise visual dos vinhos em nosso banco de dados.</p>
+    
+    <hr>
+
+    <h2>Vinhos por Tipo</h2>
+    <p>Distribuição dos vinhos cadastrados por tipo.</p>
+    
+    <div classclass="chart-container" style="max-width: 500px; margin: auto;">
+        <canvas id="graficoTipos"></canvas>
+    </div>
+    
+{% endblock %}

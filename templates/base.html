@@ -19,6 +19,7 @@
                 <a href="{{ url_for('index') }}">Home</a>
                 <a href="{{ url_for('catalog') }}">Catálogo</a>
                 <a href="{{ url_for('recommend') }}">Recomendações</a>
+                <a href="{{ url_for('dashboard') }}">Dashboard</a>
             </div>
         </div>
     </nav>
@@ -26,6 +27,9 @@
     <div class="container">
         {% block content %}{% endblock %}
     </div>
+    
+    <script src="{{ url_for('static', filename='js/app.js') }}" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
     <script src="{{ url_for('static', filename='js/app.js') }}" defer></script>
 

@@ -1,6 +1,7 @@
 import json
 from flask import Flask, render_template, request , jsonify
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import func
 
 # --- Configuração do Aplicativo ---
 app = Flask(__name__)
@@ -183,6 +184,52 @@ def api_recomendar():
     # Esta é a grande mudança!
     results_list = [vinho.to_dict() for vinho in results]
     return jsonify(results_list)
+
+
+
+# --- Rota da API para o Dashboard ---
+
+@app.route('/api/dashboard-data')
+def api_dashboard_data():
+    """
+    Rota da API que agrega dados do banco para os gráficos.
+    """
+    
+    # 1. Gráfico de Tipos de Vinho (Pizza/Rosca)
+    # Esta query agrupa os vinhos por 'type' e conta quantos existem em cada grupo.
+    try:
+        dados_tipos = db.session.query(
+            Vinho.type,                             # O que queremos agrupar (ex: "Tinto")
+            func.count(Vinho.id).label('count')     # Como queremos agregar (contar os IDs)
+        ).group_by(
+            Vinho.type                              # O comando de agrupamento
+        ).all()                                     # Executa a query
+        
+        # Converte o resultado (ex: [('Tinto', 120), ('Branco', 85)])
+        # em um formato amigável para o Chart.js
+        chart_data_tipos = {
+            'labels': [row[0] for row in dados_tipos if row[0]], # Pega os nomes (Tinto, Branco...)
+            'data': [row[1] for row in dados_tipos if row[0]]    # Pega as contagens (120, 85...)
+        }
+
+        # 2. Gráfico de Notas por País (Barras) - (Vamos adicionar em breve)
+        # ...
+        
+        # Por enquanto, retornamos apenas os dados do primeiro gráfico
+        return jsonify({
+            'graficoTipos': chart_data_tipos
+        })
+
+    except Exception as e:
+        # Em caso de erro no banco
+        print(f"Erro ao gerar dados do dashboard: {e}")
+        return jsonify({"error": "Falha ao processar dados"}), 500
+    
+
+@app.route('/dashboard')
+def dashboard():
+    """Página do Dashboard - Mostra os gráficos"""
+    return render_template('dashboard.html')
 
 
 # --- Executa o Aplicativo ---
