@@ -42,26 +42,41 @@ nav {
 }
 
 .nav-container {
-    max-width: 900px;
+    max-width: 1100px; /* ligeiramente maior para centralizar melhor */
     margin: 0 auto;
     padding: 0 1rem;
     display: flex;
-    justify-content: space-between; /* Alinha o logo à esquerda e links à direita */
+    justify-content: center; /* centraliza os itens (links) */
     align-items: center;
+    position: relative; /* permite posicionar o logo à esquerda */
 }
 
+/* ---- LOGO AJUSTADA PARA A ESQUERDA ---- */
 .nav-logo {
-    color: var(--cor-branca);
+    position: absolute;
+    left: 0;
+    display: flex;
+    align-items: center;
     text-decoration: none;
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
     font-weight: bold;
+    color: #fff;
 }
 
+.logo-img {
+    height: 70px;  /* ajuste o tamanho */
+    margin-left: 20px; /* mais próxima da borda esquerda */
+}
+
+.nav-logo:hover .logo-img {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+/* ---- LINKS DE NAVEGAÇÃO ---- */
 nav a {
     color: var(--cor-branca);
     text-decoration: none;
-    margin-left: 1.5rem; /* Espaçamento entre os links */
+    margin: 0 1rem; /* espaçamento igual nos dois lados */
     font-weight: bold;
     transition: opacity 0.3s ease, color 0.3s ease;
 }
@@ -261,4 +276,33 @@ form select, form input {
     font-size: 1.4rem;
     line-height: 1.4;
     color: #fff;
+}
+/* ---- ESTILO ESPECÍFICO PARA O MAPA ---- */
+
+.mapa-container h2 {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 0.1rem;
+}
+
+.mapa-legenda {
+    text-align: center;
+    color: #ddd;
+    margin-bottom: 1.5rem;
+}
+#mapa-status {
+    text-align: center;
+    color: #fff;
+    font-size: 1.2rem;
+}
+.datamaps-hoverover {
+    z-index: 9999 !important; 
+    color: #333 !important; 
+    background: #fff !important; 
+    opacity: 1 !important;
+    
+    border-radius: 4px;
+    padding: 0.5rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    white-space: nowrap; 
 }

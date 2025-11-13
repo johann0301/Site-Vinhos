@@ -231,7 +231,87 @@ def dashboard():
     """Página do Dashboard - Mostra os gráficos"""
     return render_template('dashboard.html')
 
+# Mantenha este mapeamento no topo do arquivo (ou próximo às rotas)
+COUNTRY_CODE_MAP = {
+    "Argentina": "ARG",
+    "Nova Zelândia": "NZL",
+    "EUA": "USA",
+    "França": "FRA",
+    "Espanha": "ESP",
+    "Itália": "ITA",
+    "Austrália": "AUS",
+    "Chile": "CHL",
+    "Portugal": "PRT",
+    "Alemanha": "DEU",
+    "Brasil": "BRA" 
+    # Adicione outros países conforme necessário!
+}
+
+
+def get_wine_country_counts():
+    """
+    Calcula a contagem de vinhos por país usando o banco de dados
+    e a formata para DataMaps.
+    """
+    # 1. Faz a query para contar os vinhos por país
+    # O filtro "if Vinho.country.isnot(None)" garante que só contamos países definidos
+    country_db_counts = db.session.query(
+        Vinho.country,
+        func.count(Vinho.id).label('count')
+    ).filter(
+        Vinho.country.isnot(None)
+    ).group_by(
+        Vinho.country
+    ).all()
+    
+    # Dicionário para armazenar a contagem por código ISO (para o DataMaps)
+    iso_counts = {}
+    
+    # 2. Mapeia os nomes em português para os códigos ISO
+    for country_pt, count in country_db_counts:
+        country_code = COUNTRY_CODE_MAP.get(country_pt, None)
+        if country_code:
+            iso_counts[country_code] = count
+        # Se o país não estiver no mapeamento, ele será ignorado no mapa.
+
+    # 3. Prepara o objeto no formato esperado pelo DataMaps
+    formatted_data = {}
+    max_wines = max(iso_counts.values()) if iso_counts else 1
+
+    # Definimos 5 níveis de cor
+    num_levels = 5
+    # Garante que não dividimos por zero, usando 1 como divisor mínimo
+    level_size = max_wines // num_levels
+    level_divisor = level_size if level_size >= 1 else 1 
+
+    for code, count in iso_counts.items():
+        # Lógica para atribuir um nível de cor de 1 a 5
+        level = min(num_levels, (count // level_divisor) + 1)
+        
+        formatted_data[code] = {
+            'numberOfWines': count,
+            'fillKey': f'vinho_count_{level}'
+        }
+
+    return formatted_data, max_wines
+
+
+@app.route('/api/mapa-vinhos')
+def api_mapa_vinhos():
+    """Nova rota para fornecer dados de contagem de vinhos por país para o mapa."""
+    try:
+        data, max_wines = get_wine_country_counts()
+        return jsonify({
+            'countryData': data,
+            'maxWines': max_wines
+        })
+    except Exception as e:
+        # Retorna um erro 500 para o frontend em caso de falha no banco/lógica
+        print(f"Erro na API /api/mapa-vinhos: {e}")
+        return jsonify({"error": "Falha ao processar dados do mapa"}), 500
 
 # --- Executa o Aplicativo ---
 if __name__ == '__main__':
     app.run(debug=True)
+    
+    
