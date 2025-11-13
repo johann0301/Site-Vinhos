@@ -301,7 +301,7 @@ form select, form input {
     background: #fff !important; 
     opacity: 1 !important;
     
-    border-radius: 4px;
+    border-radius: 5px;
     padding: 0.5rem;
     box-shadow: 0 2px 10px rgba(0,0,0,0.3);
     white-space: nowrap; 
