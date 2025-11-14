@@ -261,3 +261,14 @@ form select, form input {
      */
     line-height: 1.4;
 }
+
+/* ---- IMAGENS DAS GARRAFAS ---- */
+
+.vinho-card img {
+    width: 100%;          /* Ocupa a largura do espaço disponível */
+    height: auto;         /* Mantém a proporção real (SEM ACHATAR!) */
+    object-fit: contain;  /* Impede distorções e cortes */
+    display: block;
+    margin: 0 auto;       /* Centraliza horizontalmente */
+    max-height: 300px;    /* Todas ficam com a mesma altura visual */
+}

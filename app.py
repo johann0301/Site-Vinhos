@@ -2,6 +2,12 @@ import json
 from flask import Flask, render_template, request , jsonify
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import func
+import re
+
+def gerar_nome_imagem(nome, vintage):
+    # transforma o nome em algo seguro para usar como arquivo
+    nome_formatado = re.sub(r'[^a-zA-Z0-9]+', '_', nome).lower()
+    return f"{nome_formatado}_{vintage}.jpg"
 
 # --- Configuração do Aplicativo ---
 app = Flask(__name__)
@@ -11,6 +17,8 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///vinhos.db'
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://USUARIO:SENHA@localhost:5432/NOME_DO_BANCO'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
+
+app.jinja_env.globals['gerar_nome_imagem'] = gerar_nome_imagem
 
 
 # --- Modelo do Banco de Dados (Tabela Vinho) ---
