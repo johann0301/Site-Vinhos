@@ -120,4 +120,107 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     } // Fim da lógica do dashboard
 
+    // =========================================================================
+    // --- LÓGICA DO MAPA CHOROPLETH (Corrigido para exibir o Tooltip) ---
+    // =========================================================================
+    
+    // Mapeamento dos códigos ISO-3 (DataMaps) para nomes em Português
+    // ESTE MAPA É ESSENCIAL PARA PEGAR O NOME EM PT/BR!
+    const countryNameMap = {
+        "ARG": "Argentina",
+        "NZL": "Nova Zelândia",
+        "USA": "EUA",
+        "FRA": "França",
+        "ESP": "Espanha",
+        "ITA": "Itália",
+        "AUS": "Austrália",
+        "CHL": "Chile",
+        "PRT": "Portugal",
+        "DEU": "Alemanha",
+        "BRA": "Brasil"
+    };
+    
+    const mapContainer = document.getElementById('choropleth-map');
+
+    if (mapContainer) {
+        
+        // Remove a mensagem de status (se existir)
+        const statusElement = document.getElementById('mapa-status');
+        if (statusElement) statusElement.remove();
+
+        fetch('/api/mapa-vinhos')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Erro HTTP: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                
+                const countryData = data.countryData;
+                
+                const choroplethColors = {
+                    'vinho_count_1': '#e9a0a0', 
+                    'vinho_count_2': '#e07676',
+                    'vinho_count_3': '#d74c4c',
+                    'vinho_count_4': '#cd2323',
+                    'vinho_count_5': '#5C001F', // Cor Vinho mais intensa
+                    defaultFill: '#505050' // Países sem dados
+                };
+
+
+                new Datamaps({
+                    element: mapContainer,
+                    scope: 'world', 
+                    responsive: true,
+                    fills: choroplethColors, 
+                    data: countryData,
+
+                    geographyConfig: {
+                        borderColor: '#222222',
+                        highlightBorderWidth: 2,
+                        highlightFillColor: function(geo) {
+                            return geo['properties']['fillColor'] || choroplethColors.defaultFill;
+                        },
+                        highlightBorderColor: '#e1b382',
+                        
+                        // FUNÇÃO CRÍTICA DO TOOLTIP
+                        popupTemplate: function(geography, data) {
+                            // Obtém o nome: Tenta Port. do mapeamento, senão usa o nome do mapa (Inglês/default)
+                            const name = countryNameMap[geography.id] || geography.properties.name;
+                            
+                            // Obtém a contagem: Se 'data' for null/undefined (país sem vinho), usa '0'.
+                            let count = data ? data.numberOfWines : '0';
+                            
+                            // Monta o HTML do Tooltip (a caixa que aparece)
+                            let tooltipHtml = `<div class="datamaps-hoverover"><strong>${name}</strong><br/>`;
+                            tooltipHtml += `${count} Vinho(s) no Catálogo</div>`;
+                            return tooltipHtml;
+                        },
+                        dataUrl: null // Garante que DataMaps confie nos dados fornecidos
+                    },
+                    
+                    setProjection: function(element) {
+                        const projection = d3.geo.mercator()
+                            .center([-10, 0]) 
+                            .scale(150)
+                            .translate([element.offsetWidth / 2, element.offsetHeight / 2]);
+                        const path = d3.geo.path().projection(projection);
+                        return {projection: projection, path: path};
+                    }
+                });
+                
+                window.addEventListener('resize', () => {
+                    const existingMap = document.getElementById('choropleth-map').querySelector('svg');
+                    if(existingMap) {
+                       // O Datamaps lida com o redimensionamento automaticamente.
+                    }
+                });
+
+            })
+            .catch(error => {
+                console.error('Erro ao carregar o mapa choropleth:', error);
+                mapContainer.innerHTML = '<p>Erro ao carregar o mapa de vinhos. Verifique a API /api/mapa-vinhos e o console.</p>';
+            });
+    } // Fim da lógica do mapa
 }); // Fim do DOMContentLoaded

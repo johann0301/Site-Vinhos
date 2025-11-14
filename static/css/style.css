@@ -11,53 +11,79 @@
 body {
     font-family: 'Lato', Arial, sans-serif; /* Fonte mais limpa para leitura */
     margin: 0;
-    background-color: var(--cor-fundo);
     color: var(--cor-texto);
     line-height: 1.6;
+
+    /* ---- FUNDO COM IMAGEM DE ADEGA ---- */
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.55)), /* Filtro escuro */
+        url('vinho.png'); /* Caminho da imagem de fundo */
+    background-size: cover; /* A imagem cobre toda a tela */
+    background-position: center; /* Centraliza a imagem */
+    background-attachment: fixed; /* Efeito de paralaxe leve */
+    background-repeat: no-repeat; /* Evita repetição da imagem */
 }
 
+/* Mantém a cor do texto visível sobre o fundo escuro */
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', serif; /* Fonte mais elegante para títulos */
-    color: var(--cor-vinho);
+    color: var(--cor-branca);
 }
 
 /* ---- NAVEGAÇÃO (NAV) ---- */
 nav {
-    background-color: var(--cor-vinho);
+    background-color: rgba(92, 0, 31, 0.85); /* Transparente para mostrar o fundo */
     padding: 1rem 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.4);
     position: sticky; /* Fica no topo ao rolar */
     top: 0;
     z-index: 100;
+    backdrop-filter: blur(6px); /* Efeito de vidro */
 }
 
 .nav-container {
-    max-width: 900px;
+    max-width: 1100px; /* ligeiramente maior para centralizar melhor */
     margin: 0 auto;
     padding: 0 1rem;
     display: flex;
-    justify-content: space-between; /* Alinha o logo à esquerda e links à direita */
+    justify-content: center; /* centraliza os itens (links) */
     align-items: center;
+    position: relative; /* permite posicionar o logo à esquerda */
 }
 
+/* ---- LOGO AJUSTADA PARA A ESQUERDA ---- */
 .nav-logo {
-    color: var(--cor-branca);
+    position: absolute;
+    left: 0;
+    display: flex;
+    align-items: center;
     text-decoration: none;
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
     font-weight: bold;
+    color: #fff;
 }
 
+.logo-img {
+    height: 70px;  /* ajuste o tamanho */
+    margin-left: 20px; /* mais próxima da borda esquerda */
+}
+
+.nav-logo:hover .logo-img {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+/* ---- LINKS DE NAVEGAÇÃO ---- */
 nav a {
     color: var(--cor-branca);
     text-decoration: none;
-    margin-left: 1.5rem; /* Espaçamento entre os links */
+    margin: 0 1rem; /* espaçamento igual nos dois lados */
     font-weight: bold;
-    transition: opacity 0.3s ease; /* Efeito suave */
+    transition: opacity 0.3s ease, color 0.3s ease;
 }
 
 nav a:hover {
     opacity: 0.8; /* Efeito hover sutil */
+    color: #e1b382; /* Um dourado claro elegante */
 }
 
 /* ---- CONTAINER PRINCIPAL ---- */
@@ -65,17 +91,20 @@ nav a:hover {
     max-width: 900px;
     margin: 2rem auto;
     padding: 2rem; /* Mais espaço interno */
-    background-color: var(--cor-branca);
-    border-radius: 8px;
-    box-shadow: var(--sombra-suave); /* Sombra suave para "elevar" o card */
+    background-color: rgba(255, 255, 255, 0.1); /* Transparente e elegante */
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* Mais contraste sobre o fundo escuro */
+    backdrop-filter: blur(6px); /* Vidro fosco */
+    color: var(--cor-branca); /* Texto claro dentro do container */
 }
 
 /* ---- CARTÃO DE VINHO (PARA O CATÁLOGO) ---- */
 .vinho-card {
-    border: 1px solid #eee;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 8px;
     padding: 1.5rem;
-    box-shadow: var(--sombra-suave);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     
     /* --- Novas regras --- */
@@ -86,27 +115,29 @@ nav a:hover {
 
 .vinho-card:hover {
     transform: translateY(-5px); /* Efeito de "levantar" no hover */
-    box-shadow: 0 8px 15px rgba(0,0,0,0.08);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
 }
 
 .vinho-card h3 {
     margin-top: 0;
+    color: #fff;
 }
 
 .card-body {
     flex-grow: 1; /* Faz o corpo (descrição) crescer e ocupar o espaço */
     margin: 1rem 0;
+    color: #ddd;
 }
 .card-body p {
     margin: 0.5rem 0; /* Espaçamento interno */
 }
 .card-body em {
-    color: #555; /* Descrição com uma cor mais suave */
+    color: #bbb; /* Descrição com uma cor mais suave */
     font-size: 0.95rem;
 }
 
 .card-footer {
-    border-top: 1px solid #eee; /* Linha sutil separando o rodapé */
+    border-top: 1px solid rgba(255,255,255,0.2); /* Linha sutil */
     padding-top: 1rem;
     margin-top: 1rem;
 }
@@ -120,13 +151,13 @@ nav a:hover {
 .vinho-nota .nota-valor {
     font-size: 1.8rem;
     font-weight: bold;
-    color: var(--cor-vinho);
+    color: #e1b382;
     font-family: 'Playfair Display', serif;
 }
 
 .vinho-nota .nota-avaliacoes {
     font-size: 0.9rem;
-    color: #777;
+    color: #ccc;
 }
 
 /* ---- FORMULÁRIOS (PARA A PÁGINA DE RECOMENDAÇÃO) ---- */
@@ -134,6 +165,7 @@ form label {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: bold;
+    color: var(--cor-branca);
 }
 
 form select, form input {
@@ -157,11 +189,12 @@ form select, form input {
     font-size: 1rem;
     text-decoration: none; /* Para links com a classe .btn */
     display: inline-block;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .btn:hover {
     background-color: #4a0019; /* Um tom mais escuro de vinho no hover */
+    transform: scale(1.05);
 }
 
 /* ---- LAYOUT DO CATÁLOGO ---- */
@@ -182,24 +215,23 @@ form select, form input {
 /* ---- FORMULÁRIO DE RECOMENDAÇÃO ---- */
 .form-grid {
     display: grid;
-    /* 3 colunas: label, input, e a próxima linha */
     grid-template-columns: auto 1fr; /* Coluna da label se auto-ajusta, input cresce */
     gap: 1.2rem 1rem; /* Espaçamento vertical e horizontal */
-    align-items: center; /* Alinha labels e inputs na mesma altura */
-    max-width: 600px; /* Limita a largura do formulário */
+    align-items: center;
+    max-width: 600px;
     margin-bottom: 2rem;
 }
 
 .form-grid label {
-    margin-bottom: 0; /* O gap do grid já cuida disso */
+    margin-bottom: 0;
     font-weight: bold;
-    text-align: right; /* Alinha as labels à direita, fica elegante */
+    text-align: right;
 }
 
 /* Para o botão ocupar as duas colunas */
 .form-grid .form-span-2 {
     grid-column: span 2;
-    text-align: center; /* Centraliza o botão */
+    text-align: center;
 }
 
 /* Ajuste para telas pequenas (celular) */
@@ -208,7 +240,7 @@ form select, form input {
         grid-template-columns: 1fr; /* Coluna única no celular */
     }
     .form-grid label {
-        text-align: left; /* Alinhamento padrão no celular */
+        text-align: left;
         margin-bottom: 0.2rem;
     }
 }
@@ -224,42 +256,55 @@ form select, form input {
 
 .pagination span {
     font-weight: bold;
-    color: #555;
+    color: #ddd;
 }
 
 /* Um estilo de botão "secundário" para o link 'anterior' */
 .btn-outline {
     background-color: transparent;
-    color: var(--cor-vinho);
-    border: 2px solid var(--cor-vinho);
+    color: #e1b382;
+    border: 2px solid #e1b382;
 }
 .btn-outline:hover {
-    background-color: var(--cor-vinho);
-    color: var(--cor-branca);
+    background-color: #e1b382;
+    color: #3a0010;
 }
 
 /* ---- AJUSTE FINO DO TÍTULO DO CARD ---- */
-
-/* * Alvo: O <h3> (nome do vinho) que está
- * dentro de um .card-header
- */
 .card-header h3 {
-    /* * Trocamos para 'Lato', a mesma fonte do corpo do texto.
-     * É uma fonte sans-serif, muito mais legível para textos menores.
-     * Mantemos o 'font-weight: 700' (bold) para dar destaque.
-     */
     font-family: 'Lato', Arial, sans-serif;
-    
-    /* * Aumentando o tamanho da fonte.
-     * O padrão do navegador para h3 é ~1.17rem.
-     * Vamos aumentar para 1.4rem. Ajuste se achar melhor!
-     */
     font-size: 1.4rem;
-
-    /* * Adicionamos um espaçamento de linha um pouco maior 
-     * caso o nome do vinho quebre em duas linhas.
-     */
     line-height: 1.4;
+    color: #fff;
+}
+/* ---- ESTILO ESPECÍFICO PARA O MAPA ---- */
+
+.mapa-container h2 {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 0.1rem;
+}
+
+.mapa-legenda {
+    text-align: center;
+    color: #ddd;
+    margin-bottom: 1.5rem;
+}
+#mapa-status {
+    text-align: center;
+    color: #fff;
+    font-size: 1.2rem;
+}
+.datamaps-hoverover {
+    z-index: 9999 !important; 
+    color: #333 !important; 
+    background: #fff !important; 
+    opacity: 1 !important;
+    
+    border-radius: 5px;
+    padding: 0.5rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    white-space: nowrap; 
 }
 
 /* ---- IMAGENS DAS GARRAFAS ---- */

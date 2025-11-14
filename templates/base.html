@@ -14,7 +14,10 @@
 <body>
     <nav>
         <div class="nav-container">
-            <a href="{{ url_for('index') }}" class="nav-logo">Site-Vinhos 🍷</a>
+            <a href="{{ url_for('index') }}" class="nav-logo">
+    <img src="{{ url_for('static', filename='css/logo3.png') }}" alt="Logo do Site Vinhos" class="logo-img">
+</a>
+
             <div class="nav-links">
                 <a href="{{ url_for('index') }}">Home</a>
                 <a href="{{ url_for('catalog') }}">Catálogo</a>
