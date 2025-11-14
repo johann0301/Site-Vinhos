@@ -318,8 +318,11 @@ def api_mapa_vinhos():
         print(f"Erro na API /api/mapa-vinhos: {e}")
         return jsonify({"error": "Falha ao processar dados do mapa"}), 500
 
+import baixar_imagens
+
 # --- Executa o Aplicativo ---
 if __name__ == '__main__':
     app.run(debug=True)
+    
     
     
