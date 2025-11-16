@@ -160,12 +160,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 const countryData = data.countryData;
                 
                 const choroplethColors = {
-                    'vinho_count_1': '#e9a0a0', 
-                    'vinho_count_2': '#e07676',
-                    'vinho_count_3': '#d74c4c',
-                    'vinho_count_4': '#cd2323',
-                    'vinho_count_5': '#5C001F', // Cor Vinho mais intensa
-                    defaultFill: '#505050' // Países sem dados
+                    'vinho_count_1': '#E0B4B4', // O Rosé claro do seu gráfico
+                    'vinho_count_2': '#C38A7F', // Um tom de transição
+                    'vinho_count_3': '#A65A54', // Um vinho mais aberto
+                    'vinho_count_4': '#8A2A2A', // Um vinho mais fechado
+                    'vinho_count_5': '#5C001F', // Sua cor principal (perfeito!)
+                    defaultFill: '#333333'      // Um cinza mais escuro e neutro (melhor que #505050)
                 };
 
 
@@ -177,12 +177,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     data: countryData,
 
                     geographyConfig: {
-                        borderColor: '#222222',
+                        borderColor: '#1a1a1a',
                         highlightBorderWidth: 2,
                         highlightFillColor: function(geo) {
                             return geo['properties']['fillColor'] || choroplethColors.defaultFill;
                         },
-                        highlightBorderColor: '#e1b382',
+                        highlightBorderColor: '#D4AF37',
                         
                         // FUNÇÃO CRÍTICA DO TOOLTIP
                         popupTemplate: function(geography, data) {
