@@ -317,3 +317,80 @@ form select, form input {
     margin: 0 auto;       /* Centraliza horizontalmente */
     max-height: 300px;    /* Todas ficam com a mesma altura visual */
 }
+
+/* ==========================================================================
+                NOVOS ESTILOS DO DASHBOARD (KPI CARDS)
+==========================================================================
+*/
+
+.kpi-card-grid {
+    display: grid;
+    /* Cria 3 colunas em telas maiores, 1 coluna em telas menores */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem; /* Espaço antes do gráfico de rosca */
+}
+
+.kpi-card {
+    /* Reutilizando seu estilo "vidro fosco" escuro */
+    background: rgba(0, 0, 0, 0.25); 
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.kpi-card h4 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-family: 'Lato', Arial, sans-serif; /* Fonte mais leve para o título */
+    color: #ccc; /* Cor suave para o título */
+    font-size: 1rem;
+    font-weight: 400;
+    text-transform: uppercase; /* Deixa o título em maiúsculas */
+}
+
+.kpi-card p {
+    margin: 0;
+    font-family: 'Playfair Display', serif; /* Fonte elegante para o número */
+    color: #fff; /* Cor branca para o número */
+    font-size: 2.2rem;
+    font-weight: bold;
+}
+
+/* ==========================================================================
+                    NOVOS ESTILOS DO FILTRO DO DASHBOARD
+==========================================================================
+*/
+
+.dashboard-filters {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap; /* Permite que os filtros quebrem a linha em telas pequenas */
+}
+
+.filtro-item {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Faz os itens crescerem para preencher o espaço */
+    min-width: 250px; /* Largura mínima antes de quebrar a linha */
+}
+
+.filtro-item label {
+    font-weight: bold;
+    color: #ddd;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+/* Reutilizando o estilo dos formulários de recomendação */
+.filtro-item select {
+    width: 100%;
+    padding: 0.8rem;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}

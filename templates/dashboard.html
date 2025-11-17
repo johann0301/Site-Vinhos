@@ -6,10 +6,59 @@
     
     <hr>
 
+    <!-- ================================================== -->
+    <!-- ========== 1. NOVA SEÇÃO DE FILTROS ========== -->
+    <!-- ================================================== -->
+    <div class="dashboard-filters">
+        <div class="filtro-item">
+            <label for="filtro-pais">Filtrar por País:</label>
+            <select id="filtro-pais" name="pais">
+                <option value="">Todos os Países</option>
+                <!-- Loop Jinja para preencher os países do backend -->
+                {% for country in countries %}
+                    <option value="{{ country }}">{{ country }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="filtro-item">
+            <label for="filtro-qualidade">Por Qualidade (Nota Mínima):</label>
+            <select id="filtro-qualidade" name="qualidade">
+                <option value="">Qualquer Nota</option>
+                <option value="4.8">Apenas 4.8+</option>
+                <option value="4.5">Apenas 4.5+</option>
+                <option value="4.0">Apenas 4.0+</option>
+                <option value="3.5">Apenas 3.5+</option>
+            </select>
+        </div>
+    </div>
+    <!-- ================================================== -->
+
+    <div class="kpi-card-grid">
+
+        <div class="kpi-card">
+            <h4>Total de Vinhos</h4>
+            <!-- O ID 'kpi-total-vinhos' é usado pelo app.js -->
+            <p id="kpi-total-vinhos">...</p> 
+        </div>
+
+        <div class="kpi-card">
+            <h4>Total de Países</h4>
+            <!-- O ID 'kpi-total-paises' é usado pelo app.js -->
+            <p id="kpi-total-paises">...</p>
+        </div>
+
+        <div class="kpi-card">
+            <h4>Tipo Dominante</h4>
+            <!-- O ID 'kpi-tipo-dominante' é usado pelo app.js -->
+            <p id="kpi-tipo-dominante">...</p>
+        </div>
+
+    </div>
+
     <h2>Vinhos por Tipo</h2>
     <p>Distribuição dos vinhos cadastrados por tipo.</p>
     
-    <div classclass="chart-container" style="max-width: 500px; margin: auto;">
+    <div class="chart-container" style="max-width: 500px; margin: auto;"> <!--aqui estava classclass por algum motivo, se der erro voltar aqui-->
         <canvas id="graficoTipos"></canvas>
     </div>
     
