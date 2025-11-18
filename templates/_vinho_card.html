@@ -1,3 +1,5 @@
+<a href="{{ url_for('detalhes_vinho', id=vinho.id) }}" target="_blank" class="vinho-card-link">
+
 <div class="vinho-card">
     
     <div class="card-header">
@@ -8,11 +10,10 @@
         </p>
     </div>
 
-<img class="vinho-img vinho-card-img"
-     src="{{ url_for('static', filename='img/vinhos/' + gerar_nome_imagem(vinho.name, vinho.vintage)) }}"
-     onerror="this.onerror=null; this.src='{{ url_for('static', filename='img/vinhos/sem_imagem.jpg') }}';">
+    <img class="vinho-img vinho-card-img"
+        src="{{ url_for('static', filename='img/vinhos/' + gerar_nome_imagem(vinho.name, vinho.vintage)) }}"
+        onerror="this.onerror=null; this.src='{{ url_for('static', filename='img/vinhos/sem_imagem.jpg') }}';">
 
-    
     <div class="card-body">
         <p><strong>Uvas:</strong> {{ vinho.grape_varieties }}</p>
         
@@ -29,3 +30,21 @@
     </div>
 
 </div>
+
+</a>
+
+<style>
+.vinho-card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.vinho-card-link:hover .vinho-card {
+    transform: scale(1.03);
+    box-shadow: 0 0 12px rgba(0,0,0,0.25);
+}
+
+.vinho-card {
+    transition: transform .2s, box-shadow .2s;
+}
+</style>
