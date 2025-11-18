@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{{ vinho.name }} ({{ vinho.vintage }})</h2>
+
+<img src="{{ url_for('static', filename='img/vinhos/' + gerar_nome_imagem(vinho.name, vinho.vintage)) }}"
+     onerror="this.onerror=null; this.src='{{ url_for('static', filename='img/vinhos/sem_imagem.jpg') }}';"
+     alt="{{ vinho.name }}"
+     style="width:300px; border-radius:10px; display:block; margin-bottom:20px;">
+
+<p><strong>Tipo:</strong> {{ vinho.type }}</p>
+<p><strong>País:</strong> {{ vinho.country }}</p>
+<p><strong>Uvas:</strong> {{ vinho.grape_varieties }}</p>
+
+{% if vinho.description %}
+<p><strong>Descrição:</strong> {{ vinho.description }}</p>
+{% endif %}
+
+<hr>
+
+<h3>Comentários</h3>
+
+<form method="post" action="{{ url_for('adicionar_comentario', id=vinho.id) }}">
+    <textarea name="comentario" placeholder="Escreva um comentário..." required
+              style="width:100%; height:100px; margin-bottom:10px;"></textarea>
+    <button type="submit">Enviar</button>
+</form>
+
+<ul style="margin-top:20px;">
+    {% for c in vinho.comentarios %}
+    <li>{{ c.texto }} — <small>{{ c.data.strftime('%d/%m/%Y') }}</small></li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

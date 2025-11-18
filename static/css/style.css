@@ -100,17 +100,19 @@ nav a:hover {
 
 /* ---- CARTÃO DE VINHO (PARA O CATÁLOGO) ---- */
 .vinho-card {
+    display: flex;               /* Agora sim flex */
+    flex-direction: column;      /* Mantém layout vertical */
+    justify-content: space-between;
+    cursor: pointer;
+
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 8px;
     padding: 1.5rem;
     background: rgba(0, 0, 0, 0.25);
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    
-    /* --- Novas regras --- */
-    display: flex; /* Ativa o Flexbox */
-    flex-direction: column; /* Empilha os filhos (header, body, footer) */
-    justify-content: space-between; /* Garante que o footer fique embaixo */
+    text-decoration: none;
+    color: inherit;
 }
 
 .vinho-card:hover {
@@ -316,4 +318,12 @@ form select, form input {
     display: block;
     margin: 0 auto;       /* Centraliza horizontalmente */
     max-height: 300px;    /* Todas ficam com a mesma altura visual */
+}
+
+.vinho-card * {
+    pointer-events: none;
+}
+
+.vinho-card {
+    pointer-events: auto;
 }

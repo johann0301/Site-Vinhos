@@ -42,7 +42,7 @@ class Vinho(db.Model):
     # Pegamos os dados aninhados do 'buyer_rating'
     average_rating = db.Column(db.Float)
     reviews_count = db.Column(db.Integer)
-
+    
     # ---- MÉTODOS DA CLASSE ----
     # ELES DEVEM ESTAR NO MESMO NÍVEL DE INDENTAÇÃO DAS COLUNAS
     
@@ -64,6 +64,17 @@ class Vinho(db.Model):
             'reviews_count': self.reviews_count,
             'description': self.description
         }
+
+class Comentario(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    texto = db.Column(db.Text, nullable=False)
+    data = db.Column(db.DateTime, server_default=func.now())
+    vinho_id = db.Column(db.Integer, db.ForeignKey('vinho.id'), nullable=False)
+
+    vinho = db.relationship("Vinho", backref=db.backref("comentarios", lazy=True))
+
+    def __repr__(self):
+        return f"<Comentario {self.texto[:15]}>"
 
 
 # --- Comando para Carregar o JSON no Banco de Dados ---
@@ -320,9 +331,36 @@ def api_mapa_vinhos():
 
 import baixar_imagens
 
+@app.route("/vinho/<int:id>", methods=["GET", "POST"])
+def detalhes_vinho(id):
+    vinho = Vinho.query.get_or_404(id)
+
+    if request.method == "POST":
+        texto = request.form["comentario"]
+        novo = Comentario(texto=texto, vinho_id=vinho.id)
+        db.session.add(novo)
+        db.session.commit()
+
+    return render_template("detalhes_vinho.html", vinho=vinho)
+
+@app.route("/vinho/<int:id>/comentario", methods=["POST"])
+def adicionar_comentario(id):
+    vinho = Vinho.query.get_or_404(id)
+
+    texto = request.form.get("comentario")
+
+    if texto:
+        comentario = Comentario(
+            vinho_id=id,
+            texto=texto,
+            data=datetime.now()
+        )
+        db.session.add(comentario)
+        db.session.commit()
+
+    return redirect(url_for("detalhes_vinho", id=id))
+
+
 # --- Executa o Aplicativo ---
 if __name__ == '__main__':
     app.run(debug=True)
-    
-    
-    
