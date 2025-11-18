@@ -1,0 +1,157 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+    .vinho-container {
+        max-width: 900px;
+        margin: auto;
+        background: #ffffff;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    }
+
+    .vinho-info {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 30px;
+    }
+
+    .vinho-info img {
+        border-radius: 10px;
+        width: 280px;
+    }
+
+    .vinho-dados h1 {
+        margin-bottom: 10px;
+    }
+
+    .comentarios-box {
+        margin-top: 40px;
+    }
+
+    .comentario {
+        background: #f8f8f8;
+        padding: 12px;
+        border-radius: 10px;
+        margin-bottom: 15px;
+        border-left: 4px solid #b30000;
+    }
+
+    .comentario strong {
+        color: #b30000;
+    }
+
+    .comentario-form {
+        margin-top: 25px;
+        padding: 20px;
+        background: #f1f1f1;
+        border-radius: 10px;
+    }
+
+    .comentario-form input,
+    .comentario-form textarea {
+        width: 100%;
+        padding: 10px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        margin-bottom: 12px;
+        font-size: 15px;
+    }
+
+    .comentario-form button {
+        background: #b30000;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: 0.2s;
+    }
+
+    .comentario-form button:hover {
+        background: #8a0000;
+    }
+
+    .voltar {
+        margin-top: 30px;
+        display: inline-block;
+        padding: 10px 20px;
+        background: #555;
+        color: white;
+        border-radius: 6px;
+        text-decoration: none;
+    }
+
+    .voltar:hover {
+        background: #333;
+    }
+</style>
+
+
+<div class="vinho-container">
+
+    <!-- ——— INFORMAÇÕES DO VINHO ——— -->
+    <div class="vinho-info">
+        
+        <img src="{{ url_for('static', filename='img/vinhos/' + gerar_nome_imagem(vinho.name, vinho.vintage)) }}"
+             onerror="this.onerror=null; this.src='{{ url_for('static', filename='img/vinhos/sem_imagem.jpg') }}';">
+
+        <div class="vinho-dados">
+            <h1>{{ vinho.name }} ({{ vinho.vintage }})</h1>
+
+            <p><strong>País:</strong> {{ vinho.country }}</p>
+            <p><strong>Região:</strong> {{ vinho.region }}</p>
+            <p><strong>Tipo:</strong> {{ vinho.type }}</p>
+            <p><strong>Uvas:</strong> {{ vinho.grape_varieties }}</p>
+
+            {% if vinho.description %}
+            <p style="margin-top: 10px;"><em>{{ vinho.description }}</em></p>
+            {% endif %}
+
+            <p style="margin-top: 10px;">
+                <strong>Nota média:</strong> {{ "%.1f"|format(vinho.average_rating) }}
+                ({{ vinho.reviews_count }} avaliações)
+            </p>
+        </div>
+    </div>
+
+    <!-- ——— FORMULÁRIO DE COMENTÁRIOS ——— -->
+    <div class="comentario-form">
+        <h2>Deixe seu comentário</h2>
+
+        <form method="POST">
+            <input type="text" name="nome" placeholder="Seu nome" required>
+
+            <textarea name="texto" rows="4" placeholder="Escreva seu comentário..." required></textarea>
+
+            <button type="submit">Enviar comentário</button>
+        </form>
+    </div>
+
+
+    <!-- ——— LISTAGEM DE COMENTÁRIOS ——— -->
+    <div class="comentarios-box">
+        <h2>Comentários</h2>
+        <hr>
+
+        {% if vinho.comentarios %}
+            {% for c in vinho.comentarios %}
+                <div class="comentario">
+                    <strong>{{ c.nome }}</strong><br>
+                    {{ c.texto }}
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>Nenhum comentário ainda. Seja o primeiro!</p>
+        {% endif %}
+    </div>
+
+
+    <a href="{{ url_for('catalog') }}" class="voltar">← Voltar ao catálogo</a>
+
+</div>
+
+{% endblock %}

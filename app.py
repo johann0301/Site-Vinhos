@@ -211,36 +211,72 @@ def api_recomendar():
 @app.route('/api/dashboard-data')
 def api_dashboard_data():
     """
-    Rota da API que agrega dados do banco para os gráficos.
+    Rota da API que agrega dados do banco para os gráficos,
+    agora aceitando filtros de 'pais' e 'qualidade'.
     """
     
-    # 1. Gráfico de Tipos de Vinho (Pizza/Rosca)
-    # Esta query agrupa os vinhos por 'type' e conta quantos existem em cada grupo.
     try:
-        dados_tipos = db.session.query(
-            Vinho.type,                             # O que queremos agrupar (ex: "Tinto")
-            func.count(Vinho.id).label('count')     # Como queremos agregar (contar os IDs)
-        ).group_by(
-            Vinho.type                              # O comando de agrupamento
-        ).all()                                     # Executa a query
+        # --- 1. LER OS FILTROS DA URL ---
+        pais_filtro = request.args.get('pais')
+        qualidade_filtro = request.args.get('qualidade', 0, type=float) # Padrão 0 (sem filtro)
+
+        # --- 2. CRIAR A QUERY BASE ---
+        # Esta é a base para TODAS as nossas consultas
+        query_base = Vinho.query
         
-        # Converte o resultado (ex: [('Tinto', 120), ('Branco', 85)])
-        # em um formato amigável para o Chart.js
+        if pais_filtro:
+            query_base = query_base.filter(Vinho.country == pais_filtro)
+        
+        if qualidade_filtro > 0:
+            query_base = query_base.filter(Vinho.average_rating >= qualidade_filtro)
+
+        
+        # --- 3. CALCULAR OS DADOS USANDO A QUERY BASE ---
+
+        # A. Gráfico de Tipos de Vinho (Pizza/Rosca)
+        # Usamos 'with_entities' para selecionar colunas específicas da query_base
+        dados_tipos = query_base.with_entities(
+                Vinho.type, 
+                func.count(Vinho.id)
+            ).filter(Vinho.type.isnot(None)).group_by(Vinho.type).all()
+        
         chart_data_tipos = {
-            'labels': [row[0] for row in dados_tipos if row[0]], # Pega os nomes (Tinto, Branco...)
-            'data': [row[1] for row in dados_tipos if row[0]]    # Pega as contagens (120, 85...)
+            'labels': [row[0] for row in dados_tipos if row[0]],
+            'data': [row[1] for row in dados_tipos if row[0]]
         }
 
-        # 2. Gráfico de Notas por País (Barras) - (Vamos adicionar em breve)
-        # ...
+        # B. Total de Vinhos (KPI)
+        total_vinhos = query_base.count()
         
-        # Por enquanto, retornamos apenas os dados do primeiro gráfico
+        # C. Total de Países Únicos (KPI)
+        # Se um país foi filtrado, o total será 1. Senão, conta os distintos.
+        if pais_filtro:
+            total_paises = 1 if total_vinhos > 0 else 0 # Se o filtro não retornar vinhos, é 0
+        else:
+            # Conta países distintos *dentro* do filtro de qualidade
+            total_paises = query_base.with_entities(Vinho.country).distinct().count()
+        
+        # D. Tipo Dominante (KPI)
+        tipo_dominante = "N/A"
+        if dados_tipos:
+            tipo_dominante = max(dados_tipos, key=lambda row: row[1])[0]
+        elif total_vinhos > 0: # Se há vinhos mas nenhum tem "tipo" (raro)
+            tipo_dominante = "Indefinido"
+
+        # E. Monta o dicionário dos KPIs
+        dados_kpi = {
+            "totalVinhos": total_vinhos,
+            "totalPaises": total_paises,
+            "tipoDominante": tipo_dominante
+        }
+        
+        # --- 4. RETORNAR OS DADOS FILTRADOS ---
         return jsonify({
-            'graficoTipos': chart_data_tipos
+            'graficoTipos': chart_data_tipos,
+            'kpiCards': dados_kpi
         })
 
     except Exception as e:
-        # Em caso de erro no banco
         print(f"Erro ao gerar dados do dashboard: {e}")
         return jsonify({"error": "Falha ao processar dados"}), 500
     
@@ -248,7 +284,11 @@ def api_dashboard_data():
 @app.route('/dashboard')
 def dashboard():
     """Página do Dashboard - Mostra os gráficos"""
-    return render_template('dashboard.html')
+    # Pega a lista de países para preencher o <select>
+    # (Exatamente como na página de Recomendações)
+    countries_db = db.session.query(Vinho.country).distinct().all()
+    countries = sorted([c[0] for c in countries_db if c[0]])
+    return render_template('dashboard.html', countries=countries)
 
 # Mantenha este mapeamento no topo do arquivo (ou próximo às rotas)
 COUNTRY_CODE_MAP = {

@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
             container.innerHTML = '<p>Buscando os melhores vinhos para você...</p>';
 
             fetch(`/api/recomendar?${params.toString()}`)
-                .then(response => response.json()) 
+                .then(response => response.json())
                 .then(vinhos => {
                     renderizarVinhos(vinhos);
                 })
@@ -64,61 +64,114 @@ document.addEventListener('DOMContentLoaded', () => {
     } // Fim da lógica do formulário
 
     
-    // --- CÓDIGO DO DASHBOARD ---
-    
+    // --- CÓDIGO DO DASHBOARD (ATUALIZADO COM FILTROS) ---
+ 
+    // Referências aos elementos do HTML
     const ctx = document.getElementById('graficoTipos');
+    const filtroPais = document.getElementById('filtro-pais');
+    const filtroQualidade = document.getElementById('filtro-qualidade');
 
-    if (ctx) {
-        fetch('/api/dashboard-data')
-            .then(response => response.json())
-            .then(data => {
-                
-                console.log(data); 
-                const dadosDoGrafico = data.graficoTipos;
+    // Só executa o código do dashboard se o gráfico e os filtros existirem
+    if (ctx && filtroPais && filtroQualidade) {
 
-                // --- A CORREÇÃO ESTÁ AQUI ---
-                // Antes de criar um novo gráfico, verificamos se já existe um.
-                // Isso corrige o erro "Canvas is already in use".
-                const existingChart = Chart.getChart(ctx);
-                if (existingChart) {
-                    existingChart.destroy();
-                }
-                // --- FIM DA CORREÇÃO ---
+        // 1. Função principal que busca os dados
+        function buscarDadosDashboard() {
+            // Pega os valores atuais dos filtros
+            const pais = filtroPais.value;
+            const qualidade = filtroQualidade.value;
 
-                // Cria o gráfico
-                new Chart(ctx, {
-                    type: 'doughnut', 
-                    data: {
-                        labels: dadosDoGrafico.labels, 
-                        datasets: [{
-                            label: 'Qtd. de Vinhos',
-                            data: dadosDoGrafico.data, 
-                            backgroundColor: [
-                                '#5C001F', 
-                                '#E0B4B4',
-                                '#F8F0E3',
-                                '#8A9A5B',
-                                '#D4AF37'
-                            ],
-                            hoverOffset: 4
-                        }]
-                    },
-                    options: {
-                        responsive: true, 
-                        plugins: {
-                            legend: {
-                                position: 'top', 
+            // Monta a URL da API com os parâmetros de filtro
+            const params = new URLSearchParams();
+            if (pais) {
+                params.append('pais', pais);
+            }
+            if (qualidade) {
+                params.append('qualidade', qualidade);
+            }
+
+            const url = `/api/dashboard-data?${params.toString()}`;
+
+            // Mostra um "carregando" nos cards enquanto busca
+            renderizarKpiCards({}); // Limpa os cards com '...'
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    console.log("Dados recebidos:", data); 
+
+                    // Preenche os cards (KPIs)
+                    if(data.kpiCards) {
+                        renderizarKpiCards(data.kpiCards);
+                    }
+
+                    // Destrói gráfico antigo (se existir)
+                    const existingChart = Chart.getChart(ctx);
+                    if (existingChart) {
+                        existingChart.destroy();
+                    }
+
+                    // Desenha o novo gráfico
+                    const dadosDoGrafico = data.graficoTipos;
+                    new Chart(ctx, {
+                        type: 'doughnut', 
+                        data: {
+                            labels: dadosDoGrafico.labels, 
+                            datasets: [{
+                                label: 'Qtd. de Vinhos',
+                                data: dadosDoGrafico.data, 
+                                backgroundColor: [
+                                    '#5C001F', '#E0B4B4', '#F8F0E3', '#8A9A5B', '#D4AF37'
+                                ],
+                                hoverOffset: 4
+                            }]
+                        },
+                        options: {
+                            responsive: true, 
+                            plugins: {
+                                legend: {
+                                    position: 'right', 
+                                        labels: {
+                                        font: { size: 14 },
+                                        color: '#ddd'
+                                    }
+                                }
                             }
                         }
-                    }
+
+                    })
+                })
+                .catch(error => {
+                    console.error('Erro ao processar o gráfico:', error);
+                    ctx.parentElement.innerHTML = '<p>Erro ao carregar o gráfico.</p>';
                 });
-            })
-            .catch(error => {
-                // Agora o log de erro será mais específico
-                console.error('Erro ao processar o gráfico:', error);
-                ctx.parentElement.innerHTML = '<p>Erro ao carregar o gráfico.</p>';
-            });
-    } // Fim da lógica do dashboard
+        } // Fim da função buscarDadosDashboard
+
+        // 2. "Ouvintes" de eventos
+        filtroPais.addEventListener('change', buscarDadosDashboard);
+        filtroQualidade.addEventListener('change', buscarDadosDashboard);
+
+        // 3. Busca inicial (quando a página carrega)
+        buscarDadosDashboard();
+
+    } // Fim da lógica principal do dashboard
+
+    // Função que preenche os cards (KPIs)
+    function renderizarKpiCards(dadosKpi) {
+        const elTotalVinhos = document.getElementById('kpi-total-vinhos');
+        const elTotalPaises = document.getElementById('kpi-total-paises');
+        const elTipoDominante = document.getElementById('kpi-tipo-dominante');
+
+        if (elTotalVinhos) {
+            elTotalVinhos.textContent = dadosKpi.totalVinhos ?? '...';
+        }
+        if (elTotalPaises) {
+            elTotalPaises.textContent = dadosKpi.totalPaises ?? '...';
+        }
+        if (elTipoDominante) {
+            elTipoDominante.textContent = dadosKpi.tipoDominante ?? '...';
+        }
+    }
+    // --- FIM DA NOVA FUNÇÃO ---
 
     // =========================================================================
     // --- LÓGICA DO MAPA CHOROPLETH (Corrigido para exibir o Tooltip) ---
@@ -171,9 +224,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 new Datamaps({
                     element: mapContainer,
-                    scope: 'world', 
+                    scope: 'world',
                     responsive: true,
-                    fills: choroplethColors, 
+                    fills: choroplethColors,
                     data: countryData,
 
                     geographyConfig: {
@@ -202,7 +255,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     
                     setProjection: function(element) {
                         const projection = d3.geo.mercator()
-                            .center([-10, 0]) 
+                            .center([-10, 0])
                             .scale(150)
                             .translate([element.offsetWidth / 2, element.offsetHeight / 2]);
                         const path = d3.geo.path().projection(projection);
