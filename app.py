@@ -1,8 +1,9 @@
 import json
-from flask import Flask, render_template, request , jsonify
+from flask import Flask, render_template, request , jsonify, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import func
 import re
+from datetime import datetime
 
 def gerar_nome_imagem(nome, vintage):
     # transforma o nome em algo seguro para usar como arquivo
