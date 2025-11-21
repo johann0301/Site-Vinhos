@@ -80,7 +80,6 @@ def processar_imagem_automatica(vinho):
     # Se já existe
     if os.path.exists(caminho):
         vinho.image_path = nome_arquivo
-        db.session.commit()
         print(f"✔ Imagem já existia")
         return
 
@@ -112,4 +111,6 @@ from sqlalchemy import event
 @event.listens_for(Vinho, "after_insert")
 def vinho_inserido(mapper, connection, vinho):
     print(f"\n🔔 Novo vinho detectado: {vinho.name}")
-    processar_imagem_automatica(vinho)
+    # Não baixar a imagem agora (isso causa commit duplo)
+    # Apenas marcar que precisa baixar depois
+    vinho._precisa_baixar = True

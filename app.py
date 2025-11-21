@@ -131,7 +131,16 @@ def init_db_command():
     # Salva todas as mudanças no banco
     db.session.commit()
     print(f'Banco de dados inicializado com {len(vinhos_data)} vinhos!')
+    # Baixar imagens DEPOIS do insert (momento seguro)
+    from baixar_imagens import processar_imagem_automatica
 
+    vinhos = Vinho.query.all()
+    for v in vinhos:
+        if hasattr(v, "_precisa_processar_imagem"):
+            processar_imagem_automatica(v)
+
+    db.session.commit()
+    print("📸 Todas as imagens processadas com sucesso!")
 
 # --- Rotas do Site (Páginas) ---
 
@@ -147,10 +156,19 @@ def catalog():
     # 1. Pega o número da página da URL (ex: /catalog?page=2)
     # O padrão é 1, e o 'type=int' garante que é um número.
     page = request.args.get('page', 1, type=int)
+    search = request.args.get('search', '', type=str)
+
+    query = Vinho.query
+
+    # Se o usuário digitou algo, filtra pelo nome
+    if search:
+        query = query.filter(Vinho.name.ilike(f"%{search}%"))
+
+    # Paginação funciona normalmente
     
     # 2. Em vez de .all(), usamos .paginate()
     # Vamos mostrar 12 vinhos por página
-    pagination = Vinho.query.order_by(Vinho.rank).paginate(
+    pagination = query.order_by(Vinho.rank).paginate(
         page=page, 
         per_page=12, 
         error_out=False
@@ -158,7 +176,7 @@ def catalog():
     
     # 3. 'pagination.items' contém os 12 vinhos da página atual
     # Passamos o objeto 'pagination' inteiro para o template
-    return render_template('catalog.html', pagination=pagination)
+    return render_template('catalog.html', pagination=pagination, search=search)
 
 @app.route('/recommend')
 def recommend():
@@ -405,6 +423,3 @@ def adicionar_comentario(id):
 # --- Executa o Aplicativo ---
 if __name__ == '__main__':
     app.run(debug=True)
-    
-with app.app_context():
-    db.create_all()

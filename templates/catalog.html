@@ -1,29 +1,42 @@
-{% extends 'base.html' %}
+    {% extends 'base.html' %}
 
-{% block content %}
-    <h1>Catálogo de Vinhos</h1>
-    <p>Exibindo {{ pagination.items|length }} de {{ pagination.total }} vinhos do nosso acervo.</p>
-    
-    <hr>
-    
-    <div class="catalogo-grid">
+    {% block content %}
+        <h1>Catálogo de Vinhos</h1>
+        <p>Exibindo {{ pagination.items|length }} de {{ pagination.total }} vinhos do nosso acervo.</p>
+        <form method="get" action="{{ url_for('catalog') }}" style="margin-bottom:20px; display:flex; gap:10px;">
+        <input 
+            type="text" 
+            name="search" 
+            placeholder="Buscar vinho pelo nome..." 
+            value="{{ search }}"
+            style="flex:1; padding:8px;"
+        >
+        <button type="submit" style="padding:8px 15px;">Buscar</button>
+        </form>
+
         
-        {% for vinho in pagination.items %}
-            {% include '_vinho_card.html' %}
-        {% else %}
-            <p>Nenhum vinho encontrado no banco de dados.</p>
-        {% endfor %}
+        <hr>
         
-    </div> <div class="pagination">
-        {% if pagination.has_prev %}
-            <a href="{{ url_for('catalog', page=pagination.prev_num) }}" class="btn btn-outline">&laquo; Anteriores</a>
-        {% endif %}
+        <div class="catalogo-grid">
+            
+            {% for vinho in pagination.items %}
+                {% include '_vinho_card.html' %}
+            {% else %}
+                <p>Nenhum vinho encontrado no banco de dados.</p>
+            {% endfor %}
+            
+        </div> <div class="pagination">
+            {% if pagination.has_prev %}
+                <a href="{{ url_for('catalog', page=pagination.prev_num, search=search) }}" class="btn btn-outline">&laquo; Anteriores</a>
+
+            {% endif %}
+            
+            <span>Página {{ pagination.page }} de {{ pagination.pages }}</span>
+            
+            {% if pagination.has_next %}
+                <a href="{{ url_for('catalog', page=pagination.next_num, search=search) }}" class="btn">Próximos &raquo;</a>
+
+            {% endif %}
+        </div>
         
-        <span>Página {{ pagination.page }} de {{ pagination.pages }}</span>
-        
-        {% if pagination.has_next %}
-            <a href="{{ url_for('catalog', page=pagination.next_num) }}" class="btn">Próximos &raquo;</a>
-        {% endif %}
-    </div>
-    
-{% endblock %}
+    {% endblock %}

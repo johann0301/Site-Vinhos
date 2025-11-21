@@ -2,16 +2,12 @@
 {% block content %}
 <h2>{{ vinho.name }} ({{ vinho.vintage }})</h2>
 
-<img src="{{ url_for('static', filename='img/vinhos/' + gerar_nome_imagem(vinho.name, vinho.vintage or 'SA')) }}" onerror="this.onerror=null; this.src='{{ url_for('static', filename='img/vinhos/sem_imagem.jpg') }}';" alt="{{ vinho.name }}" style="width:300px; border-radius:10px; display:block; margin-bottom:20px;">
-
-
-**Substitua pelo código corrigido (Eu movi a linha `onerror` e `alt` para que fiquem no mesmo formato da linha 5, garantindo que o HTML entenda onde termina um atributo e começa o outro):**
-
-http://googleusercontent.com/immersive_entry_chip/1
-
-Ao corrigir esses detalhes de sintaxe nos templates, o erro deve sumir, e a funcionalidade de detalhes e comentários deve estar 100% restaurada!
-
-Lembre-se de **reiniciar o servidor** depois de salvar.
+<img 
+    src="{{ url_for('static', filename='img/vinhos/' + gerar_nome_imagem(vinho.name, vinho.vintage or 'SA')) }}" 
+    onerror="this.onerror=null; this.src='{{ url_for('static', filename='img/vinhos/sem_imagem.jpg') }}';" 
+    alt="{{ vinho.name }}" 
+    style="width:300px; border-radius:10px; display:block; margin-bottom:20px;"
+>
 
 <p><strong>Tipo:</strong> {{ vinho.type }}</p>
 <p><strong>País:</strong> {{ vinho.country }}</p>
